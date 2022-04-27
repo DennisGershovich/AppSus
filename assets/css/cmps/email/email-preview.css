@@ -10,3 +10,8 @@
     /* border: 1px solid black; */
     padding-top: 6px;
 }
+
+.email-preview:hover {
+    background-color: rgb(216, 216, 216);
+    transform: scale(1.01);
+}
