@@ -4,9 +4,9 @@ export function Home() {
 
     return<div className="dark-overlay"> 
         <div className="landing-inner">
-          <h1 className="x-large">Let's Make It Easy Together</h1>
+          <h1 className="x-large">Welcome to AppSus</h1>
           <p className="lead">
-                Make your life easier and much more productivity with AppSus
+              Welcome to AppSus application!
           </p>
           <div className="buttons">
             <Link to="/email" className="landing-btn"> 

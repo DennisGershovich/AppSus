@@ -3,7 +3,7 @@ const { Link, NavLink, withRouter } = ReactRouterDOM
 function _AppHeader (){
 
     return <header className="app-header">
-    <Link to="/" exact> <h2 >SusApp</h2></Link>
+    <Link to="/" exact> <h2 >AppSus</h2></Link>
     <nav>
         <NavLink to="/email">Email</NavLink>
         <NavLink to="/notes">Notes</NavLink>
