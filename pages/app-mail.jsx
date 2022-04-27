@@ -5,8 +5,19 @@ import {EmailFolderList} from "../apps/email/cmps/email-folder-list.jsx"
 export class EmailApp extends React.Component{
 
     state ={
-       
+       emails:[],
+       filterBy:null
     }
+
+    componentDidMount(){
+        //load emails on mount
+    }
+
+    loadEmails =()=>{
+        //get emails from service
+    }
+
+    
 
     render(){
     const {emails} = this.state
