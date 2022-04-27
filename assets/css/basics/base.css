@@ -1,0 +1,52 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+html{
+    height: 100%;
+}
+
+body {
+    background-color: #fff;
+    font-family: raleway, sans-serif;
+    margin: 0;
+    color: #333;
+    font-size: 1rem;
+    line-height: 1.6;
+    height: 100%;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    margin: 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff
+}
+
+img {
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+}
+
+ul {
+    list-style: none;
+}
+
+#root{
+    height: 100%;
+}
+
+button {
+    cursor: pointer;
+    border: 0;
+}
+

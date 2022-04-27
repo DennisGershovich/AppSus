@@ -1,0 +1,50 @@
+.app{
+    /* background-color: rgb(129, 191, 253); */
+    background: linear-gradient(rgb(183, 231, 250), rgb(53, 53, 187));
+    height: 90%;
+}
+
+.landing-inner {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+}
+
+.dark-overlay {
+    width: 100%;
+    height: 100%;
+}
+
+.lead {
+    text-align: center;
+}
+
+.buttons {
+    display: flex;
+}
+
+.email,
+.note {
+    font-size: 5rem;
+    color: var(--dark-clr);
+}
+
+.email:hover,
+.note:hover {
+    color: var(--primary-clr)
+}
+
+.landing-btn {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    justify-content: center
+}
+
+.landing-btn span {
+    width: 100%;
+    text-align: center
+}

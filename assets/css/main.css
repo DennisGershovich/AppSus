@@ -1,0 +1,18 @@
+/* Setup */
+
+@import './setup/variables.css';
+@import './setup/fonts.css';
+@import './setup/keyframes.css';
+
+/* Basics */
+
+@import './basics/base.css';
+@import './basics/helpers.css';
+
+/* Views */
+
+@import'./pages/app-home.css';
+
+/* Cmps */
+@import './cmps/app-header.css';
+@import './cmps/app-footer.css';
