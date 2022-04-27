@@ -4,7 +4,8 @@ const EMAILS_KEY = "emailDB";
 
 export const emailService ={
     query,
-    getEmail
+    getEmail,
+    getUnreadEmailsCount
 }
 
 const loggedinUser = {
@@ -12,7 +13,17 @@ const loggedinUser = {
  fullname: 'Mahatma Appsus'
 }
 
-let emails_list =[ {
+let emails_list =[
+{
+id: _makeId(),
+subject: 'Love you!',
+body: 'Would love to love up sometimes',
+isRead: false,
+sentAt :  _convertToDate(15511335555594),
+to: 'momo@momo.com',
+sender:'Suzi'
+},
+{
 id: _makeId(),
 subject: 'Miss you!',
 body: 'Would love to catch up sometimes',
@@ -25,7 +36,7 @@ sender:'Pozi'
 id: _makeId(),
 subject: 'hey you!',
 body: 'Would love to catch up sometimes',
-isRead: false,
+isRead: true,
 sentAt : _convertToDate(1551443960594),
 to: 'momo@momo.com',
 sender:'osama'
@@ -43,7 +54,12 @@ function query(filterBy) {
         //filter
     }
     emails_list = emails
-    return Promise.resolve(emails)
+    let unReadEmails = getUnreadEmailsCount(emails)
+    return Promise.resolve(emails,unReadEmails)
+}
+
+function getUnreadEmailsCount(emails){
+    return  emails.filter(email => !email.isRead).length
 }
 
 function getEmail(emailId){

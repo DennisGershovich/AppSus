@@ -10,6 +10,10 @@
     cursor: pointer;
 }
 
+.email-preview.read{
+    background-color: rgb(244, 237, 237);
+}
+
 .fas.fa-trash-alt{
     /* border: 1px solid black; */
     padding-top: 6px;
@@ -18,4 +22,5 @@
 .email-preview:hover {
     background-color: rgb(216, 216, 216);
     transform: scale(1.01);
+    box-shadow: 0 0 4px #00000059;
 }

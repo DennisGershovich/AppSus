@@ -6,14 +6,24 @@
 }
 
 .email-filter {
-    border: 1px solid rgb(125, 11, 224);
     display: flex;
-    justify-content: center;
+    justify-content:space-evenly;
     padding: 1.5rem;
+    border: 1px solid rgb(238, 17, 17);
+    
+}
+
+.email-input-filter{
+    padding: 0.05rem;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+}
+
+.unread-emails-counter{
+    
 }
 
 .email-app-main-content {
-    border: 1px solid rgb(0, 0, 0);
     display: flex;
     justify-content: space-around;
     height: 100%;
