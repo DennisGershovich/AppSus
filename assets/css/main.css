@@ -12,6 +12,7 @@
 /* Views */
 
 @import'./pages/app-home.css';
+@import'./pages/mail.css';
 
 /* Cmps */
 @import './cmps/app-header.css';
