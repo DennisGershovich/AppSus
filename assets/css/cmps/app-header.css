@@ -6,7 +6,6 @@
     background-color: var(--dark-clr);
     border-bottom: solid 1px var(--primary-clr);
     opacity: 0.9;
-    /* position: fixed; */
     z-index: 1;
     width: 100%;
     top: 0;

@@ -1,6 +1,5 @@
 .app{
-    /* background-color: rgb(129, 191, 253); */
-    background: linear-gradient(rgb(183, 231, 250), rgb(53, 53, 187));
+    background-color: rgb(129, 191, 253);
     height: 90%;
 }
 
