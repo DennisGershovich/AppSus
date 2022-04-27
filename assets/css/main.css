@@ -18,6 +18,8 @@
 /* Cmps */
 @import './cmps/app-header.css';
 @import './cmps/app-footer.css';
-@import './cmps/notes-list.css';
+@import './cmps/notes/todo-note.css';
+@import './cmps/notes/note-preview.css';
+@import './cmps/notes/notes-list.css';
 @import'./cmps/email/email-preview.css';
 @import'./cmps/email/email-details.css';

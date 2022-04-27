@@ -31,7 +31,7 @@ export class NotesList extends React.Component {
       <section className="notes-list-container grid">
         {notes.map((note) => {
           return (
-            <div key={note.id} className={`${note.type} flex`} style={note.style}>
+            <div key={note.id} className={`note-card ${note.type} flex`} style={note.style}>
               <NotePreview note={note} loadNotes={()=>this.loadNotes()}/>
             </div>
           );

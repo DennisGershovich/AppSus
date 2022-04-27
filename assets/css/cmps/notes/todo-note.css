@@ -1,0 +1,4 @@
+
+.todo-list li.done{
+    text-decoration: line-through;
+}

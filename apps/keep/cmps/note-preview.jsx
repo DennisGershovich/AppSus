@@ -23,7 +23,7 @@ export class NotePreview extends React.Component {
     return (
       <React.Fragment>
         <DynamicCmp type={note.type} note={note}/>
-        <input type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
+        <input name="note-color" type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
       </React.Fragment>
     );
   }

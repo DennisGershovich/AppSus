@@ -8,7 +8,7 @@ export class TextNote extends React.Component{
         let {note}=this.state
         if(!note)return <React.Fragment></React.Fragment>
         return <div>
-            {note.type}
+            {note.info.txt}
         </div>
     }
 }
