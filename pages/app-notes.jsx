@@ -4,9 +4,9 @@ import { NotesList } from "../cmps/notes-cmp/note-list.jsx";
 export class Notes extends React.Component{
 
     render(){
-        return <section className="notes-app-container">
+        return <main className="notes-app-container">
             <AddNote/>
             <NotesList/>
-        </section>
+        </main>
     }
 }
