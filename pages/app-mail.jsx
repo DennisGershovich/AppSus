@@ -1,7 +1,7 @@
 import { EmailList } from "../apps/email/cmps/email-list.jsx"
 import {EmailFilter} from "../apps/email/cmps/email-filter.jsx"
 import {EmailFolderList} from "../apps/email/cmps/email-folder-list.jsx"
-
+import {emailService} from "../apps/email/services/emailService.js"
 export class EmailApp extends React.Component{
 
     state ={
@@ -10,17 +10,17 @@ export class EmailApp extends React.Component{
     }
 
     componentDidMount(){
-        //load emails on mount
+        this.loadEmails()
     }
 
     loadEmails =()=>{
-        //get emails from service
+        emailService.query(this.state.filterBy)
+            .then(emails => this.setState({emails}))
     }
-
-    
 
     render(){
     const {emails} = this.state
+ 
     return<section className="email-app">
         <EmailFilter /> 
         <div className="email-app-main-content">

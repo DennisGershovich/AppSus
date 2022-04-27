@@ -1,0 +1,12 @@
+.email-preview{
+    border: 1px solid rgba(0, 0, 0, .125);
+    padding: 0.5em;
+    margin-bottom: 0.2em;
+    justify-content: space-between;
+    cursor: pointer;
+}
+
+.fas.fa-trash-alt{
+    /* border: 1px solid black; */
+    padding-top: 6px;
+}
