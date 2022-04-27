@@ -16,7 +16,7 @@ id: _makeId(),
 subject: 'Miss you!',
 body: 'Would love to catch up sometimes',
 isRead: false,
-sentAt : 1551133930594,
+sentAt :  _convertToDate(1551133960594),
 to: 'momo@momo.com',
 sender:'Pozi'
 },{
@@ -24,7 +24,7 @@ id: _makeId(),
 subject: 'hey you!',
 body: 'Would love to catch up sometimes',
 isRead: false,
-sentAt : 1551133960594,
+sentAt : _convertToDate(1551443960594),
 to: 'momo@momo.com',
 sender:'osama'
 }
@@ -63,4 +63,13 @@ function _makeId(length = 6) {
     }
 
     return txt
+}
+
+function _convertToDate(datetime){
+    const date = new Date(datetime);
+    const options = {
+        year: 'numeric', month: 'numeric', day: 'numeric',
+    };
+
+    return date.toLocaleDateString('he', options);
 }
