@@ -6,7 +6,8 @@ export class EmailApp extends React.Component{
 
     state ={
        emails:[],
-       filterBy:null
+       filterBy:null,
+
     }
 
     componentDidMount(){
@@ -21,6 +22,7 @@ export class EmailApp extends React.Component{
 
     render(){
     const {emails} = this.state
+    console.log('props ',this.props);
     return<section className="email-app">
         <EmailFilter /> 
         <div className="email-app-main-content">

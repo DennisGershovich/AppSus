@@ -1,5 +1,5 @@
-import { AddNote } from "../cmps/notes-cmp/add-note.jsx";
-import { NotesList } from "../cmps/notes-cmp/note-list.jsx";
+import { AddNote } from "../apps/keep/cmps/note-add.jsx";
+import { NotesList } from "../apps/keep/cmps/note-list.jsx";
 
 export class Notes extends React.Component{
 
