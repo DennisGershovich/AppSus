@@ -4,13 +4,13 @@ import { TextNote } from "./dynamic-notes/text-note.jsx";
 import { VideoNote } from "./dynamic-notes/video-note.jsx";
 import { noteService } from "../services/note.service.js";
 
+
 export class NotePreview extends React.Component {
   state = {
     note: this.props.note,
   };
 
   onChangeBgcColor=({value})=>{
-    // debugger
     const {note}=this.state
     noteService.changeBgcColor(note.id,value)
     this.props.loadNotes()
@@ -18,7 +18,6 @@ export class NotePreview extends React.Component {
 
   render() {
     const { note } = this.state;
-    console.log('the style ',note.style);
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <React.Fragment>

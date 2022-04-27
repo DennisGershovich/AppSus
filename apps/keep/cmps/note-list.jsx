@@ -1,7 +1,9 @@
 import { noteService } from "../services/note.service.js";
 import { NotePreview } from "./note-preview.jsx";
 
-export class NotesList extends React.Component {
+
+const { withRouter } = ReactRouterDOM;
+class _NotesList extends React.Component {
   state = {
     notes: null,
   };
@@ -12,8 +14,6 @@ export class NotesList extends React.Component {
 
   loadNotes = () => {
     noteService.query().then((res) => {
-      // debugger
-      console.log('notes ',res);
       this.setState({ notes: res });
     });
   };
@@ -22,11 +22,13 @@ export class NotesList extends React.Component {
     this.loadNotes();
   }
 
+  componentDidUpdate(prevProps, prevState) {
+    if(prevProps!==this.props) this.loadNotes();
+  }
+
   render() {
-    // debugger
     const { notes } = this.state;
     if (notes===null) return <React.Fragment></React.Fragment>;
-    console.log('the color from the renders ',notes[0].style);
     return (
       <section className="notes-list-container grid">
         {notes.map((note) => {
@@ -40,3 +42,5 @@ export class NotesList extends React.Component {
     );
   }
 }
+
+export const NotesList = withRouter(_NotesList);

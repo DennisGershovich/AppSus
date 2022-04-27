@@ -1,12 +1,14 @@
 import { storageService } from "../../../services/storage.service.js";
+import { utilService } from "../../../services/util.service.js";
 
 export const noteService = {
   query,
-  changeBgcColor
+  changeBgcColor,
+  addNote,
 };
 
 const NOTES_KEY = "notedDB";
-let gNotes =[];
+let gNotes = [];
 
 const preMade = [
   {
@@ -43,32 +45,78 @@ const preMade = [
     id: "n104",
     type: "note-vid",
     info: {
-      url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+      url: "https://www.youtube.com/embed/tgbNymZ7vqY",
     },
-  }
+  },
 ];
 
 function query() {
   let notes = _loadFromStorage();
   if (!notes) {
-    return notes = _createNotes().then((res) => {
+    return (notes = _createNotes().then((res) => {
       gNotes = res;
       _saveToStorage();
-      return Promise.resolve(res)
-    });
+      return Promise.resolve(res);
+    }));
   }
-  gNotes=notes;
-  return Promise.resolve(notes)
+  gNotes = notes;
+  return Promise.resolve(notes);
+}
+
+function addNote({ primaryValue, seconderyValue, noteType }) {
+  return _createNote(primaryValue, seconderyValue, noteType).then((res) => {
+    gNotes.push(res);
+    _saveToStorage();
+    return res
+  });
 }
 
 function changeBgcColor(noteId, value) {
-
-  const noteIdx=gNotes.findIndex((note) => {
+  const noteIdx = gNotes.findIndex((note) => {
     if (note.id === noteId) return true;
-  })
-  gNotes[noteIdx] = {...gNotes[noteIdx],style:{backgroundColor:value}}
+  });
+  gNotes[noteIdx] = { ...gNotes[noteIdx], style: { backgroundColor: value } };
   _saveToStorage();
   return Promise.resolve(gNotes[noteIdx]);
+}
+
+function _createNote(primaryValue, seconderyValue, noteType) {
+  switch (noteType) {
+    case "txt":
+      return Promise.resolve({
+        id: utilService.makeId(),
+        type: "note-txt",
+        isPinned: false,
+        info: {
+          txt: primaryValue,
+        },
+      });
+    case "img":
+      return Promise.resolve({
+        id: utilService.makeId(),
+        type: "note-img",
+        info: {
+          url: seconderyValue,
+          title: primaryValue,
+        },
+      });
+    case "todo":
+      return Promise.resolve({
+        id: utilService.makeId(),
+        type: "note-todos",
+        info: {
+          label: pri,
+          todos: [{ txt: seconderyValue, doneAt: null }],
+        },
+      });
+    case "vid": return Promise.resolve({
+      id: utilService.makeId(),
+      type: "note-vid",
+      info: {
+        url: primaryValue,
+      },
+    })
+  }
 }
 
 function _createNotes() {
