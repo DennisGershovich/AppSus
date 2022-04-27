@@ -1,5 +1,6 @@
 import { noteService } from "../services/note.service.js";
 import { NotePreview } from "./note-preview.jsx";
+
 export class NotesList extends React.Component {
   state = {
     notes: null,
@@ -16,13 +17,14 @@ export class NotesList extends React.Component {
   };
 
   render() {
+    // debugger
       const {notes}=this.state
-      if(!notes) return <React.Fragment></React.Fragment>
+      if(notes===null) return <React.Fragment></React.Fragment>
     return (
       <section className="notes-list-container">
-        {notes.map(note=>{return <div key={note.id}>
-          <NotePreview/>
-        </div>})}
+        {notes.map(note=>{return (<div key={note.id} className={note.type}>
+          <NotePreview note={note}/>
+        </div>)})}
       </section>
     );
   }
