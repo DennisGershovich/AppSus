@@ -6,7 +6,8 @@ export class EmailApp extends React.Component{
 
     state ={
        emails:[],
-       filterBy:null
+       filterBy:null,
+
     }
 
     componentDidMount(){
