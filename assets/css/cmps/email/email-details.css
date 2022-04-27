@@ -7,15 +7,30 @@
 }
 
 .email-details-container{
-    border: 1px solid black;
+    border: #ccc 1px solid;
     width: 60%;
-    height: 80%;
+    height: 70%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
 }
 
 .email-details-container >*:not(:last-child){
-    border-bottom: 1px solid black;
+    border-bottom: #ccc 1px solid;
+    flex: 1;
+    align-items: center;
 }
 
 .email .email-adress{
     font-size: 1rem;
+}
+
+.email-details-container .email-content{
+    flex: 11;
+}
+
+.email-subject{
+    display: flex;
+    justify-content: space-between;
+    padding: 0 1rem 0;
 }

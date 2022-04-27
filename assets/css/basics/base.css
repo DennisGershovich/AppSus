@@ -54,3 +54,7 @@ button {
 li{
     list-style: none;
 }
+
+i{
+    cursor: pointer;
+}

@@ -9,7 +9,7 @@ function _AppHeader() {
       <nav>
         <NavLink to="/email">Email</NavLink>
         <NavLink to="/notes">Notes</NavLink>
-        <NavLink to="/about">Books</NavLink>
+        <NavLink to="/books">Books</NavLink>
       </nav>
     </header>
   );

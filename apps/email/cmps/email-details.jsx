@@ -5,9 +5,17 @@ export function EmailDetails (props){
     const email = emailService.getEmail(props.match.params.emailId)
     return <section className="email-details">
         <div className="email-details-container">
-           <div className="email-subject">
-               {email.subject}
-           </div>
+        <div className="email-subject">
+            <div onClick={() => props.history.goBack()}>
+                <i className="btn-details fas fa-arrow-left mr-5" ></i>
+            </div>
+            <div>
+                {email.subject}
+            </div>
+            <div onClick={() => console.log('test')}>
+                <i className=" fas fa-trash-alt"></i>  
+            </div>
+        </div>
            <div className="email-sender">
                {email.sender}
            </div>
