@@ -12,22 +12,30 @@ export class NotesList extends React.Component {
 
   loadNotes = () => {
     noteService.query().then((res) => {
-      this.setState({notes:res});
+      // debugger
+      console.log('notes ',res);
+      this.setState({ notes: res });
     });
   };
 
+  onChangeColor=()=>{
+    this.loadNotes();
+  }
+
   render() {
     // debugger
-      const {notes}=this.state
-      if(notes===null) return <React.Fragment></React.Fragment>
+    const { notes } = this.state;
+    if (notes===null) return <React.Fragment></React.Fragment>;
+    console.log('the color from the renders ',notes[0].style);
     return (
       <section className="notes-list-container grid">
-        {notes.map(note=>{return (
-        <div key={note.id} className={note.type}>
-          <NotePreview note={note}/>
-         </div>
-        )
-      })}
+        {notes.map((note) => {
+          return (
+            <div key={note.id} className={`${note.type} flex`} style={note.style}>
+              <NotePreview note={note} loadNotes={()=>this.loadNotes()}/>
+            </div>
+          );
+        })}
       </section>
     );
   }

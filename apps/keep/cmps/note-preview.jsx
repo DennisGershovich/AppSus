@@ -2,21 +2,29 @@ import { ImgNote } from "./dynamic-notes/img-note.jsx";
 import { TodoNote } from "./dynamic-notes/todo-note.jsx";
 import { TextNote } from "./dynamic-notes/text-note.jsx";
 import { VideoNote } from "./dynamic-notes/video-note.jsx";
+import { noteService } from "../services/note.service.js";
 
 export class NotePreview extends React.Component {
   state = {
     note: this.props.note,
   };
 
+  onChangeBgcColor=({value})=>{
+    // debugger
+    const {note}=this.state
+    noteService.changeBgcColor(note.id,value)
+    this.props.loadNotes()
+  }
+
   render() {
-    //   debugger
     const { note } = this.state;
+    console.log('the style ',note.style);
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-    //   <div className="noteCard">
-    //     {/* {note.type} */}
-        <DynamicCmp type={note.type} note={note} />
-    //   </div>
+      <React.Fragment>
+        <DynamicCmp type={note.type} note={note}/>
+        <input type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
+      </React.Fragment>
     );
   }
 }

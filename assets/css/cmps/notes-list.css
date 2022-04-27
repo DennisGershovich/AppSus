@@ -1,11 +1,15 @@
 .notes-list-container{
+    padding: 20px;
     align-self: stretch;
     grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
     grid-gap:5px
 }
 
 .notes-list-container >*{
+    flex-direction: column;
+    justify-content: space-between;
     padding-inline: 0.5em; ;
     border-radius: 0.5em;
     box-shadow: 0 0 4px #00000059;
+    min-height: 200px;
 }

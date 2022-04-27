@@ -2,10 +2,11 @@ import { storageService } from "../../../services/storage.service.js";
 
 export const noteService = {
   query,
+  changeBgcColor
 };
 
 const NOTES_KEY = "notedDB";
-let gNotes = [{}];
+let gNotes =[];
 
 const preMade = [
   {
@@ -37,23 +38,34 @@ const preMade = [
         { txt: "Coding power", doneAt: 187111111 },
       ],
     },
-  }
+  },
 ];
 
 function query() {
   let notes = _loadFromStorage();
   if (!notes) {
-    notes = _createNotes().then((res) => {
-      notes = res;
+    return notes = _createNotes().then((res) => {
       gNotes = res;
       _saveToStorage();
+      return Promise.resolve(res)
     });
   }
-  return Promise.resolve(notes);
+  gNotes=notes;
+  return Promise.resolve(notes)
+}
+
+function changeBgcColor(noteId, value) {
+
+  const noteIdx=gNotes.findIndex((note) => {
+    if (note.id === noteId) return true;
+  })
+  gNotes[noteIdx] = {...gNotes[noteIdx],style:{backgroundColor:value}}
+  _saveToStorage();
+  return Promise.resolve(gNotes[noteIdx]);
 }
 
 function _createNotes() {
-    return Promise.resolve(preMade);
+  return Promise.resolve(preMade);
 }
 
 function _saveToStorage(notes = gNotes) {
