@@ -7,7 +7,7 @@ export class TextNote extends React.Component{
         console.log('from the text note ',this.props);
         let {note}=this.state
         if(!note)return <React.Fragment></React.Fragment>
-        return <div className="text-note">
+        return <div>
             {note.type}
         </div>
     }

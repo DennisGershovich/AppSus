@@ -21,10 +21,13 @@ export class NotesList extends React.Component {
       const {notes}=this.state
       if(notes===null) return <React.Fragment></React.Fragment>
     return (
-      <section className="notes-list-container">
-        {notes.map(note=>{return (<div key={note.id} className={note.type}>
+      <section className="notes-list-container grid">
+        {notes.map(note=>{return (
+        <div key={note.id} className={note.type}>
           <NotePreview note={note}/>
-        </div>)})}
+         </div>
+        )
+      })}
       </section>
     );
   }

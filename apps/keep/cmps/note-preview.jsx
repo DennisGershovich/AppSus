@@ -13,10 +13,10 @@ export class NotePreview extends React.Component {
     const { note } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div className="noteCard">
-        {/* {note.type} */}
+    //   <div className="noteCard">
+    //     {/* {note.type} */}
         <DynamicCmp type={note.type} note={note} />
-      </div>
+    //   </div>
     );
   }
 }

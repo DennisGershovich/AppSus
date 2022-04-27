@@ -5,7 +5,7 @@ export class ImgNote extends React.Component{
     render(){
         let {note}=this.state
         if(!note) return <React.Fragment></React.Fragment>
-        return <div className="img-note">
+        return <div >
             {note.type}
         </div>
     }

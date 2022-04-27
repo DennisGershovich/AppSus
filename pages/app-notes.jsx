@@ -4,7 +4,7 @@ import { NotesList } from "../apps/keep/cmps/note-list.jsx";
 export class Notes extends React.Component{
 
     render(){
-        return <main className="notes-app-container">
+        return <main className="notes-app-container flex">
             <AddNote/>
             <NotesList/>
         </main>

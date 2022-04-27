@@ -1,0 +1,11 @@
+.notes-list-container{
+    align-self: stretch;
+    grid-template-columns: repeat(auto-fill,minmax(200px,1fr));
+    grid-gap:5px
+}
+
+.notes-list-container >*{
+    padding-inline: 0.5em; ;
+    border-radius: 0.5em;
+    box-shadow: 0 0 4px #00000059;
+}
