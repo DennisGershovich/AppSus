@@ -39,6 +39,13 @@ const preMade = [
       ],
     },
   },
+  {
+    id: "n104",
+    type: "note-vid",
+    info: {
+      url: 'https://www.youtube.com/embed/tgbNymZ7vqY',
+    },
+  }
 ];
 
 function query() {
