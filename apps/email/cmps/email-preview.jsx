@@ -1,8 +1,8 @@
 const { Link } = ReactRouterDOM
 
-export function EmailPreview ({email}){
+export function EmailPreview ({email,onRead}){
 
-    return <Link className="email-link " to={`/email/${email.id}`} >
+    return <Link onClick={() => onRead(email.id)}  className="email-link " to={`/email/${email.id}`} >
          
     <li className={email.isRead?'email-preview read flex':'email-preview flex'}>
             <i className="star fas fa-star mr-5 ml-5 "></i>

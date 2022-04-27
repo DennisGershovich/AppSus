@@ -7,12 +7,12 @@ export class EmailApp extends React.Component{
     state ={
        emails:[],
        filterBy:null,
-       unreadEmails:10
+       unreadEmails:null
     }
 
     componentDidMount(){
         this.loadEmails()
-         
+        
     }
 
     loadEmails =()=>{
@@ -23,6 +23,11 @@ export class EmailApp extends React.Component{
             })
     }
 
+    updateCountUnreadEmails = (emailId) =>{
+        emailService.upDateEmailRead(emailId)
+        this.setState({unreadEmails:emailService.getUnreadEmailsCount(this.state.emails)})  
+    }
+
     render(){
     const {emails,unreadEmails} = this.state
 
@@ -30,7 +35,7 @@ export class EmailApp extends React.Component{
         <EmailFilter unreadEmails={unreadEmails} /> 
         <div className="email-app-main-content">
         <EmailFolderList />
-        <EmailList  emails={emails}/> 
+        <EmailList onRead={this.updateCountUnreadEmails} emails={emails}/> 
         </div>
     </section>}  
 }

@@ -1,11 +1,11 @@
-// import { utilService } from '../services/utilService.js'
-// import { storageService } from "../services/storage.service.js";
+
 const EMAILS_KEY = "emailDB";
 
 export const emailService ={
     query,
     getEmail,
-    getUnreadEmailsCount
+    getUnreadEmailsCount,
+    upDateEmailRead
 }
 
 const loggedinUser = {
@@ -49,9 +49,8 @@ function query(filterBy) {
         emails = emails_list
        _saveToStorage(EMAILS_KEY,emails)
     }
-
     if (filterBy) {
-        //filter
+        console.log('filter by!')
     }
     emails_list = emails
     let unReadEmails = getUnreadEmailsCount(emails)
@@ -63,9 +62,18 @@ function getUnreadEmailsCount(emails){
 }
 
 function getEmail(emailId){
-    return emails_list.find(email => email.id === emailId)
+    let emails = _loadFromStorage(EMAILS_KEY)
+    return emails.find(email => email.id === emailId)
 }
 
+
+function upDateEmailRead(emailId){
+    let emails = _loadFromStorage(EMAILS_KEY)
+    let emailIdx = emails.findIndex(email => email.id === emailId )
+    emails[emailIdx].isRead = true
+    _saveToStorage(EMAILS_KEY,emails)
+    
+}
 
 function _saveToStorage(key, val) {
     localStorage.setItem(key, JSON.stringify(val))
