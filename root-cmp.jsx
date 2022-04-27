@@ -12,14 +12,14 @@ const { Route, Switch } = ReactRouterDOM
 export function App() {
     return <Router>
        <AppHeader /> 
-        <section className="app">
+        <main className="app">
             <Switch>
             <Route path="/email" component={Mail}/>
             <Route path="/notes" component={Notes}/>
             <Route path="/books" component={Books}/>
             <Route path="/" component={Home}/>
             </Switch>
-        </section>
+        </main>
         <AppFooter />
     </Router>
 }
