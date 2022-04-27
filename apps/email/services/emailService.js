@@ -3,7 +3,8 @@
 const EMAILS_KEY = "emailDB";
 
 export const emailService ={
-    query
+    query,
+    getEmail
 }
 
 const loggedinUser = {
@@ -11,7 +12,7 @@ const loggedinUser = {
  fullname: 'Mahatma Appsus'
 }
 
-const emails_list =[ {
+let emails_list =[ {
 id: _makeId(),
 subject: 'Miss you!',
 body: 'Would love to catch up sometimes',
@@ -19,7 +20,8 @@ isRead: false,
 sentAt :  _convertToDate(1551133960594),
 to: 'momo@momo.com',
 sender:'Pozi'
-},{
+},
+{
 id: _makeId(),
 subject: 'hey you!',
 body: 'Would love to catch up sometimes',
@@ -40,8 +42,12 @@ function query(filterBy) {
     if (filterBy) {
         //filter
     }
-
+    emails_list = emails
     return Promise.resolve(emails)
+}
+
+function getEmail(emailId){
+    return emails_list.find(email => email.id === emailId)
 }
 
 

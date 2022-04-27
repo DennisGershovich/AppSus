@@ -1,6 +1,8 @@
+const { Link } = ReactRouterDOM
 
 export function EmailPreview ({email}){
-    return <li className=" email-preview flex " >
+    return <Link className="email-link" to={`/email/${email.id}`} >
+    <li className=" email-preview flex " >
             <i className="star fas fa-star mr-5 ml-5 "></i>
             <div className="email-sender">
                 {email.sender}
@@ -14,5 +16,5 @@ export function EmailPreview ({email}){
             </div>
             <i className=" fas fa-trash-alt"></i>
         </li>
-   
+   </Link>
 }

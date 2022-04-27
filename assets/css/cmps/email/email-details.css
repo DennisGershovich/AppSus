@@ -1,0 +1,21 @@
+.email-details{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.email-details-container{
+    border: 1px solid black;
+    width: 60%;
+    height: 80%;
+}
+
+.email-details-container >*:not(:last-child){
+    border-bottom: 1px solid black;
+}
+
+.email .email-adress{
+    font-size: 1rem;
+}

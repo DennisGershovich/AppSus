@@ -1,5 +1,5 @@
 .app{
-    background-color: rgb(129, 191, 253);
+  
     height: 90%;
 }
 
@@ -10,6 +10,7 @@
     margin: auto;
     align-items: center;
     justify-content: center;
+    background-color: rgb(129, 191, 253);
 }
 
 .dark-overlay {
