@@ -1,45 +1,50 @@
 import { noteService } from "../../services/note.service.js";
 
+const { Link } = ReactRouterDOM;
+
 export class TextNote extends React.Component {
   state = {
     text: this.props.note.info.txt,
-    editToggle:false,
-    value:''
+    editToggle: false,
   };
 
-  toggleEdit=()=>{
-    this.setState({editToggle:!this.state.editToggle})
-  }
+  toggleEdit = () => {
+    this.setState({ editToggle: !this.state.editToggle });
+  };
 
   handleChange = ({ target }) => {
-    this.setState({ value: target.value });
+    this.setState({ text: target.value });
   };
 
-  onSaveChanges = () => {
-    const {note}=this.props
-    noteService.editNote(note.id,{txt:this.state.value})
+  onSaveChanges = (ev) => {
+    ev.preventDefault();
+    const { note } = this.props;
+    noteService.editNote(note.id, { txt: this.state.text });
+    this.toggleEdit();
   };
 
   render() {
     let { note } = this.props;
-    let {value,editToggle}=this.state
+    let { text, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <div>
-        {/* <input
-          name="text-note-input"
-          type="textarea"
-          value={this.state.text}
-          onChange={(ev) => this.handleChange(ev)}
-        />
-        <button onClick={this.onSaveChanges}>save changes</button> */}
-        <h1>{note.info.txt}</h1>
-        {editToggle&&(<form onSubmit={this.onSaveChanges}>
-          <input type="text" value={value} onChange={this.handleChange}/>
-        <button>save</button>
-        </form>
+        <h1>{text}</h1>
+        {editToggle && (
+          <form onSubmit={this.onSaveChanges}>
+            <input type="text" value={text} onChange={this.handleChange} />
+            <button>save</button>
+          </form>
         )}
-        <button onClick={this.toggleEdit}>Edit</button>
+        <Link to="/notes/edit" onClick={this.toggleEdit}>
+          <div className="edit-button-container">
+            <img
+              src="assets\img\keep\edit-note.png"
+              onClick={this.toggleEdit}
+              alt=""
+            />
+          </div>
+        </Link>
       </div>
     );
   }

@@ -4,4 +4,9 @@
     height: fit-content;
 }
 
-
+.note-card .edit-button-container{
+    margin-top: 20px;
+}
+.note-card .edit-button-container img{
+    width: inherit;
+}

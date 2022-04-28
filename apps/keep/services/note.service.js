@@ -70,6 +70,13 @@ function editNote(noteId,values){
   if(gNotes[noteIdx].type==='note-txt'){
     gNotes[noteIdx].info.txt=values.txt;
     _saveToStorage();
+    return
+  }
+  if(gNotes[noteIdx].type==='note-img'){
+    gNotes[noteIdx].info.title=values.title?values.title:gNotes[noteIdx].info.title;
+    gNotes[noteIdx].info.url=values.url?values.url:gNotes[noteIdx].info.url;
+    _saveToStorage();
+    return
   }
 }
 
