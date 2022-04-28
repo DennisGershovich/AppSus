@@ -10,7 +10,8 @@ export const emailService ={
     saveEmail,
     removeEmail,
     convertToDate,
-    sortEmails
+    sortEmails,
+    getSentEmails
 }
 
 const loggedinUser = {
@@ -21,7 +22,7 @@ const loggedinUser = {
 let emails_list =[
 {
 id: _makeId(),
-subject: 'a',
+subject: 'asdsfsd',
 body: 'Would love to love up sometimes',
 isRead: false,
 sentAt :  1551733960574,
@@ -30,7 +31,7 @@ sender:'Suzi'
 },
 {
 id: _makeId(),
-subject: 'aaaaaa',
+subject: 'asdzzxaaa',
 body: 'Would love to catch up sometimes',
 isRead: false,
 sentAt :  1551133960594,
@@ -44,7 +45,7 @@ body: 'Would love to catch up sometimes',
 isRead: true,
 sentAt : 1551443960594,
 to: 'momo@momo.com',
-sender:'osama'
+sender:'ozama'
 }
 ]
 
@@ -110,7 +111,9 @@ function sortEmails(sortBy){
 
 function saveEmail(to,subject,content){
     let sentEmail = _createEmail(to,subject,content)
-     _saveToStorage(SENT_EMAILS_KEY,sentEmail)
+    sentEmails.push(sentEmail)
+   _saveToStorage(SENT_EMAILS_KEY,sentEmails)
+   
 }
 
 function removeEmail(emailId) {
@@ -120,6 +123,9 @@ function removeEmail(emailId) {
     _saveToStorage(EMAILS_KEY,emails)
 }
 
+function getSentEmails(){
+    return  _loadFromStorage(SENT_EMAILS_KEY)
+}
 
 function _createEmail(to,subject,content){
     return {

@@ -10,6 +10,7 @@ export class EmailApp extends React.Component{
        filterBy:null,
        unreadEmails:null
     }
+    isSentEmailsOn = false
 
     componentDidMount(){
         this.loadEmails()
@@ -40,14 +41,23 @@ export class EmailApp extends React.Component{
         this.loadEmails()
     }
 
+    onShowSentEmails =() =>{
+        this.isSentEmailsOn = true
+    }
+
+    onCloseSentEmails = () =>{
+         this.isSentEmailsOn = false
+    }
+  
+
     render(){
     const {emails,unreadEmails} = this.state
-
+   
     return<section className="email-app">
         <EmailFilter unreadEmails={unreadEmails} onSetFilter={this.onSetFilter} onSort={this.onSort} /> 
         <div className="email-app-main-content">
-        <EmailFolderList />
-        <EmailList onRead={this.updateCountUnreadEmails} emails={emails}/> 
+        <EmailFolderList onShowSentEmails={this.onShowSentEmails} onCloseSentEmails={this.onCloseSentEmails}/>
+        <EmailList onRead={this.updateCountUnreadEmails} emails={emails} showSent={this.isSentEmailsOn}/> 
         </div>
     </section>}  
 }

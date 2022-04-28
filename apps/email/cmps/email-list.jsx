@@ -1,8 +1,12 @@
 import { EmailPreview } from "./email-preview.jsx"
+import {SentEmails} from './email-sent.jsx'
 
-export function EmailList ({emails,onRead}){
- 
+
+
+export function EmailList ({emails,onRead,showSent}){
+  
     return <div className="email-list-container" >
-        {emails.map(email => <EmailPreview onRead={onRead} email={email} key={email.id}/> )}
+        {!showSent && emails.map(email => <EmailPreview onRead={onRead} email={email} key={email.id}/> )}
+        {showSent && <SentEmails onRead={onRead}/>}
     </div> 
 }

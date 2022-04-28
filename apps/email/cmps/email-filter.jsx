@@ -24,12 +24,12 @@ export class EmailFilter extends React.Component{
         return <div className="email-filter">
         <button className="email-nav-btn">|||</button>   
         <form onSubmit={this.onFilter}>
-            <input className="email-input-filter" type='text' name='content' onChange={this.onHandleChange} /> 
-            <select name='readState' onChange={this.onHandleChange}>
+            <input className="email-input-filter" placeholder="Search mail" type='text' name='content' onChange={this.onHandleChange} /> 
+            {/* <select name='readState' onChange={this.onHandleChange}>
                 <option value="all">All</option>
                 <option value='true'>Read</option>
                 <option value="false">Unread</option>
-            </select>
+            </select> */}
         </form>
         <button onClick={ () => this.props.onSort('date')}>Sort by date</button>
         <button onClick={ () => this.props.onSort('title')}>Sort by title</button>
