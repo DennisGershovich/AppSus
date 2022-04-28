@@ -28,12 +28,11 @@ class _NotesList extends React.Component {
   }
 
   onSetFilter=({search,type})=>{
-    debugger
     if(!search&type===null) return;
     this.setState({filterBy:{search,type}},()=>this.loadNotes())
   }
 
-  onSaveEdit = () => {
+  onSetBgc = () => {
     this.loadNotes();
   };
 
@@ -63,7 +62,7 @@ class _NotesList extends React.Component {
               className={`note-card ${note.type} flex pinned`}
               style={note.style}
             >
-              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} onDeleteNote={this.onDeleteNote}  onTogglePinNote={this.onTogglePinNote}/>
+              <NotePreview note={note} onSetBgc={() => this.onSetBgc()} onDeleteNote={this.onDeleteNote}  onTogglePinNote={this.onTogglePinNote}/>
             </div>
           );
         })}

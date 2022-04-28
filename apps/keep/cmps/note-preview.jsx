@@ -13,7 +13,8 @@ export class NotePreview extends React.Component {
   onChangeBgcColor=({value})=>{
     const {note}=this.state
     noteService.changeBgcColor(note.id,value)
-    this.props.onSaveEdit()
+    .then(res=>this.setState({note:res}))
+    this.props.onSetBgc()
   }
 
   render() {
@@ -24,7 +25,7 @@ export class NotePreview extends React.Component {
       <React.Fragment>
         <DynamicCmp type={note.type} note={note} onSaveEdit={this.props.onSaveEdit}/>
         <div className="note-general-controls">
-        <input name="note-color" value={`${note.style?note.style.backgroundColor:'#ffffff'}`} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
+        <input name="note-color" value={note.style.backgroundColor} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
         <img src="assets\img\keep\bin.png" onClick={()=>onDeleteNote(note.id)} alt="" />
         <img src="assets\img\keep\pin.png" onClick={()=>onTogglePinNote(note.id)} alt="" />
         </div>   

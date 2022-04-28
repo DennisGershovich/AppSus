@@ -22,6 +22,9 @@ const preMade = [
     info: {
       txt: "Fullstack Me Baby!",
     },
+    style:{
+      backgroundColor:"#ffffff"
+    }
   },
   {
     id: "n102",
@@ -29,7 +32,7 @@ const preMade = [
     isPinned: false,
     info: {
       url: "https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
-      title: "Bobi and Me",
+      txt: "Bobi and Me",
     },
     style: {
       backgroundColor: "#ffffff",
@@ -39,20 +42,27 @@ const preMade = [
     id: "n103",
     type: "note-todos",
     info: {
-      label: "Get my stuff together",
+      txt: "Get my stuff together",
       todos: [
         { txt: "Driving liscence", doneAt: null },
         { txt: "Coding power", doneAt: 187111111 },
       ],
     },
+    style:{
+      backgroundColor:"#ffffff"
+    }
   },
   {
     id: "n104",
     type: "note-vid",
     isPinned: true,
     info: {
+      txt:'Youtube',
       url: "https://www.youtube.com/embed/tgbNymZ7vqY",
     },
+    style:{
+      backgroundColor:"#ffffff"
+    }
   },
 ];
 
@@ -66,10 +76,9 @@ function query(filterBy) {
     }));
   }
   gNotes = notes;
-  debugger;
   if (filterBy) {
     const filterdNotes = notes.filter((note) => {
-      return note.type === filterBy.type || filterBy.type === "";
+      return (note.type === filterBy.type || filterBy.type === "")&((note.info.txt).toLowerCase().includes(filterBy.search.toLowerCase()));
     });
     notes = filterdNotes;
   }
@@ -104,9 +113,9 @@ function editNote(noteId, values) {
     return gNotes[noteIdx];
   }
   if (gNotes[noteIdx].type === "note-img") {
-    gNotes[noteIdx].info.title = values.title
+    gNotes[noteIdx].info.txt = values.title
       ? values.title
-      : gNotes[noteIdx].info.title;
+      : gNotes[noteIdx].info.txt;
     gNotes[noteIdx].info.url = values.url
       ? values.url
       : gNotes[noteIdx].info.url;
@@ -156,6 +165,9 @@ function _createNote(primaryValue, noteType) {
         info: {
           txt: primaryValue,
         },
+        style:{
+          backgroundColor:"##ffffff"
+        }
       });
     case "img":
       return Promise.resolve({
@@ -164,8 +176,11 @@ function _createNote(primaryValue, noteType) {
         isPinned: false,
         info: {
           url: primaryValue,
-          title: null,
+          txt: 'Image',
         },
+        style:{
+          backgroundColor:"##ffffff"
+        }
       });
     case "todo":
       return Promise.resolve({
@@ -173,9 +188,12 @@ function _createNote(primaryValue, noteType) {
         type: "note-todos",
         isPinned: false,
         info: {
-          label: primaryValue,
+          txt: primaryValue,
           todos: [],
         },
+        style:{
+          backgroundColor:"##ffffff"
+        }
       });
     case "vid":
       return Promise.resolve({
@@ -183,10 +201,14 @@ function _createNote(primaryValue, noteType) {
         isPinned: false,
         type: "note-vid",
         info: {
+          txt: 'Youtube',
           url: `https://www.youtube.com/embed/${_getYoutubedEmbed(
             primaryValue
           )}`,
         },
+        style:{
+          backgroundColor:"##ffffff"
+        }
       });
   }
 }
