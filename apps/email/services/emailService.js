@@ -50,14 +50,13 @@ const sentEmails =[]
 
 function query(filterBy) {
     let emails = _loadFromStorage(EMAILS_KEY)
-    if (!emails || emails.length === 0) {
+    if (!emails) {
         emails = emails_list
        _saveToStorage(EMAILS_KEY,emails)
     }
     if (filterBy) {
         console.log('filter by!')
     }
-    emails_list = emails
     let unReadEmails = getUnreadEmailsCount(emails)
     return Promise.resolve(emails,unReadEmails)
 }
