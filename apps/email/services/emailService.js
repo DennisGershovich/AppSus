@@ -8,7 +8,9 @@ export const emailService ={
     getUnreadEmailsCount,
     upDateEmailRead,
     saveEmail,
-    removeEmail
+    removeEmail,
+    convertToDate,
+    sortEmails
 }
 
 const loggedinUser = {
@@ -19,28 +21,28 @@ const loggedinUser = {
 let emails_list =[
 {
 id: _makeId(),
-subject: 'Love you!',
+subject: 'a',
 body: 'Would love to love up sometimes',
 isRead: false,
-sentAt :  _convertToDate(15511335555594),
+sentAt :  1551733960574,
 to: 'momo@momo.com',
 sender:'Suzi'
 },
 {
 id: _makeId(),
-subject: 'Miss you!',
+subject: 'aaaaaa',
 body: 'Would love to catch up sometimes',
 isRead: false,
-sentAt :  _convertToDate(1551133960594),
+sentAt :  1551133960594,
 to: 'momo@momo.com',
 sender:'Pozi'
 },
 {
 id: _makeId(),
-subject: 'hey you!',
+subject: 'aa',
 body: 'Would love to catch up sometimes',
 isRead: true,
-sentAt : _convertToDate(1551443960594),
+sentAt : 1551443960594,
 to: 'momo@momo.com',
 sender:'osama'
 }
@@ -54,14 +56,15 @@ function query(filterBy) {
         emails = emails_list
        _saveToStorage(EMAILS_KEY,emails)
     }
-    if (filterBy) {
-        console.log(filterBy)
-        let { content,read } = filterBy
-        if(read === '') read = 'all'
-        emails = emails.filter(email => {
-        return email.subject.toLowerCase().includes(content) 
+    if (filterBy) {   
+     emails = emails.filter(email => {
+        return email.subject.toLowerCase().includes(filterBy.content) 
     })
-
+    // if(filterBy.readState && filterBy.readState !== 'all' || null){
+    //     emails = emails.filter(email =>{
+    //         return email.isRead != filterBy.readState
+    //     })
+    // }
     }
     let unReadEmails = getUnreadEmailsCount(emails)
     return Promise.resolve(emails,unReadEmails)
@@ -83,6 +86,26 @@ function upDateEmailRead(emailId){
     emails[emailIdx].isRead = true
     _saveToStorage(EMAILS_KEY,emails)
     
+}
+
+function sortEmails(sortBy){
+    let emails = _loadFromStorage(EMAILS_KEY)
+    switch(sortBy){
+        case 'date':
+        emails.sort((a, b) =>  a.sentAt - b.sentAt)
+         _saveToStorage(EMAILS_KEY,emails)
+        break
+
+        case 'title':
+        emails.sort((a, b) =>{
+        if (a.subject < b.subject) {return -1;}
+        if (b.subject > b.subject) {return 1;}
+         return 0;
+        })
+        _saveToStorage(EMAILS_KEY,emails)
+        break
+    }
+   
 }
 
 function saveEmail(to,subject,content){
@@ -130,7 +153,7 @@ function _makeId(length = 6) {
     return txt
 }
 
-function _convertToDate(datetime){
+function convertToDate(datetime){
     const date = new Date(datetime);
     const options = {
         year: 'numeric', month: 'numeric', day: 'numeric',

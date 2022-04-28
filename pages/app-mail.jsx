@@ -35,11 +35,16 @@ export class EmailApp extends React.Component{
         this.setState({unreadEmails:emailService.getUnreadEmailsCount(this.state.emails)})  
     }
 
+    onSort = (sortBy) =>{
+       emailService.sortEmails(sortBy)
+        this.loadEmails()
+    }
+
     render(){
     const {emails,unreadEmails} = this.state
 
     return<section className="email-app">
-        <EmailFilter unreadEmails={unreadEmails} onSetFilter={this.onSetFilter}  /> 
+        <EmailFilter unreadEmails={unreadEmails} onSetFilter={this.onSetFilter} onSort={this.onSort} /> 
         <div className="email-app-main-content">
         <EmailFolderList />
         <EmailList onRead={this.updateCountUnreadEmails} emails={emails}/> 

@@ -1,5 +1,5 @@
 const { Link } = ReactRouterDOM
-
+import {emailService} from '../services/emailService.js'
 export function EmailPreview ({email,onRead}){
 
     return <Link onClick={() => onRead(email.id)}  className="email-link " to={`/email/${email.id}`} >
@@ -14,7 +14,7 @@ export function EmailPreview ({email,onRead}){
                 {email.body}   
             </div>
             <div className="email-date">
-                {email.sentAt}
+                {emailService.convertToDate( email.sentAt )}
             </div>
         </li>
    </Link>
