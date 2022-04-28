@@ -5,6 +5,7 @@ export const noteService = {
   query,
   changeBgcColor,
   addNote,
+  editNote
 };
 
 const NOTES_KEY = "notedDB";
@@ -63,11 +64,20 @@ function query() {
   return Promise.resolve(notes);
 }
 
-function addNote({ primaryValue, seconderyValue, noteType }) {
-  return _createNote(primaryValue, seconderyValue, noteType).then((res) => {
+function editNote(noteId,values){
+  debugger
+  let noteIdx=gNotes.findIndex(note=>note.id===noteId);
+  if(gNotes[noteIdx].type==='note-txt'){
+    gNotes[noteIdx].info.txt=values.txt;
+    _saveToStorage();
+  }
+}
+
+function addNote( primaryValue, noteType ) {
+  return _createNote(primaryValue, noteType).then((res) => {
     gNotes.push(res);
     _saveToStorage();
-    return res
+    return res;
   });
 }
 
@@ -80,7 +90,7 @@ function changeBgcColor(noteId, value) {
   return Promise.resolve(gNotes[noteIdx]);
 }
 
-function _createNote(primaryValue, seconderyValue, noteType) {
+function _createNote(primaryValue, noteType) {
   switch (noteType) {
     case "txt":
       return Promise.resolve({
@@ -96,8 +106,8 @@ function _createNote(primaryValue, seconderyValue, noteType) {
         id: utilService.makeId(),
         type: "note-img",
         info: {
-          url: seconderyValue,
-          title: primaryValue,
+          url: primaryValue,
+          title: null,
         },
       });
     case "todo":
@@ -105,18 +115,26 @@ function _createNote(primaryValue, seconderyValue, noteType) {
         id: utilService.makeId(),
         type: "note-todos",
         info: {
-          label: pri,
-          todos: [{ txt: seconderyValue, doneAt: null }],
+          label: primaryValue,
+          todos: [],
         },
       });
-    case "vid": return Promise.resolve({
-      id: utilService.makeId(),
-      type: "note-vid",
-      info: {
-        url: primaryValue,
-      },
-    })
+    case "vid":
+      return Promise.resolve({
+        id: utilService.makeId(),
+        type: "note-vid",
+        info: {
+          url: `https://www.youtube.com/embed/${_getYoutubedEmbed(primaryValue)}`,
+        },
+      });
   }
+}
+
+function _getYoutubedEmbed(url) {
+  const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+  const match = url.match(regExp);
+
+  return match && match[2].length === 11 ? match[2] : null;
 }
 
 function _createNotes() {
