@@ -12,15 +12,17 @@ export class NotesFilter extends React.Component{
 
     render(){
         let {search,type}=this.state.filterBy
-        return <section className="filter-container">
+        const {onSetFilter}=this.props
+        return <section className="filter-container flex">
             <input type="text" name="search" value={search} placeholder="Search..." onChange={this.handleChange}/>
-            <select name="" id="" value={type}>
+            <select name="type" value={type} onChange={this.handleChange}>
                 <option value="">All</option>
-                <option value="text-note">Text</option>
-                <option value="img-note">Images</option>
-                <option value="todo-note">Todo</option>
-                <option value="vid-note">Videos</option>
+                <option value="note-txt">Text</option>
+                <option value="note-img">Images</option>
+                <option value="note-todos">Todo</option>
+                <option value="note-vid">Videos</option>
             </select>
+            <img src="assets\img\keep\go.png" alt="" onClick={()=>onSetFilter(this.state.filterBy)}/>
         </section>
     }
 }

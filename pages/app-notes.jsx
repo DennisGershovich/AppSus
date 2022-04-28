@@ -7,7 +7,6 @@ export class Notes extends React.Component{
     render(){
         return <main className="notes-app-container flex">
             <AddNote/>
-            <NotesFilter/>
             <NotesList/>
         </main>
     }

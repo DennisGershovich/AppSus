@@ -8,9 +8,11 @@
     margin-top: 20px;
 }
 .note-card .edit-button-container img{
+    cursor: pointer;
     width: inherit;
 }
 
 .note-card .note-general-controls img{
+    cursor: pointer;
     width: inherit;
 }

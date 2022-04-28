@@ -23,6 +23,7 @@
 
 /*Cmps notes */
 
+@import './cmps/notes/notes-filter.css';
 @import './cmps/notes/add-note.css';
 @import './cmps/notes/vid-note.css';
 @import './cmps/notes/img-note.css';

@@ -1,11 +1,13 @@
 import { noteService } from "../services/note.service.js";
 import { NotePreview } from "./note-preview.jsx";
+import { NotesFilter } from "./note-filter.jsx";
 
 const { withRouter } = ReactRouterDOM;
 class _NotesList extends React.Component {
   state = {
     pinnedNotes:null,
     notes: null,
+    filterBy:null
   };
 
   componentDidMount() {
@@ -13,7 +15,7 @@ class _NotesList extends React.Component {
   }
 
   loadNotes = () => {
-    noteService.query().then((res) => {
+    noteService.query(this.state.filterBy).then((res) => {
       const pinnedNotes=res.filter(note=>note.isPinned)
       const regNotes=res.filter(note=>!note.isPinned)
       this.setState({ pinnedNotes,notes: regNotes });
@@ -23,6 +25,12 @@ class _NotesList extends React.Component {
   onDeleteNote=(noteId)=>{
     noteService.deleteNote(noteId)
     this.loadNotes();
+  }
+
+  onSetFilter=({search,type})=>{
+    debugger
+    if(!search&type===null) return;
+    this.setState({filterBy:{search,type}},()=>this.loadNotes())
   }
 
   onSaveEdit = () => {
@@ -45,7 +53,8 @@ class _NotesList extends React.Component {
   render() {
     const { notes,pinnedNotes } = this.state;
     if (notes === null & pinnedNotes===null) return <React.Fragment></React.Fragment>;
-    return (
+    return (<React.Fragment>
+      <NotesFilter onSetFilter={this.onSetFilter}/>
       <section className="notes-list-container grid">
         {pinnedNotes&&pinnedNotes.map((note) => {
           return (
@@ -71,7 +80,7 @@ class _NotesList extends React.Component {
           );
         })}
       </section>
-    );
+      </React.Fragment>);
   }
 }
 

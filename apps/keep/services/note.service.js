@@ -8,7 +8,7 @@ export const noteService = {
   editNote,
   markTodoDone,
   deleteNote,
-  pinNoteToggle
+  pinNoteToggle,
 };
 
 const NOTES_KEY = "notedDB";
@@ -26,7 +26,7 @@ const preMade = [
   {
     id: "n102",
     type: "note-img",
-    isPinned:false,
+    isPinned: false,
     info: {
       url: "https://images.unsplash.com/photo-1472457897821-70d3819a0e24?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1169&q=80",
       title: "Bobi and Me",
@@ -49,14 +49,14 @@ const preMade = [
   {
     id: "n104",
     type: "note-vid",
-    isPinned:true,
+    isPinned: true,
     info: {
       url: "https://www.youtube.com/embed/tgbNymZ7vqY",
     },
   },
 ];
 
-function query() {
+function query(filterBy) {
   let notes = _loadFromStorage();
   if (!notes) {
     return (notes = _createNotes().then((res) => {
@@ -66,18 +66,25 @@ function query() {
     }));
   }
   gNotes = notes;
+  debugger;
+  if (filterBy) {
+    const filterdNotes = notes.filter((note) => {
+      return note.type === filterBy.type || filterBy.type === "";
+    });
+    notes = filterdNotes;
+  }
   return Promise.resolve(notes);
 }
 
-function pinNoteToggle(noteId){
-  const noteIdx=gNotes.findIndex(note=>note.id===noteId)
-  gNotes[noteIdx].isPinned=gNotes[noteIdx].isPinned?false:true;
+function pinNoteToggle(noteId) {
+  const noteIdx = gNotes.findIndex((note) => note.id === noteId);
+  gNotes[noteIdx].isPinned = gNotes[noteIdx].isPinned ? false : true;
   _saveToStorage();
 }
 
-function deleteNote(noteId){
-  let noteIdx=gNotes.findIndex(note=>note.id===noteId);
-  gNotes.splice(noteIdx,1);
+function deleteNote(noteId) {
+  let noteIdx = gNotes.findIndex((note) => note.id === noteId);
+  gNotes.splice(noteIdx, 1);
   _saveToStorage();
 }
 
@@ -154,7 +161,7 @@ function _createNote(primaryValue, noteType) {
       return Promise.resolve({
         id: utilService.makeId(),
         type: "note-img",
-        isPinned:false,
+        isPinned: false,
         info: {
           url: primaryValue,
           title: null,
@@ -164,7 +171,7 @@ function _createNote(primaryValue, noteType) {
       return Promise.resolve({
         id: utilService.makeId(),
         type: "note-todos",
-        isPinned:false,
+        isPinned: false,
         info: {
           label: primaryValue,
           todos: [],
@@ -173,7 +180,7 @@ function _createNote(primaryValue, noteType) {
     case "vid":
       return Promise.resolve({
         id: utilService.makeId(),
-        isPinned:false,
+        isPinned: false,
         type: "note-vid",
         info: {
           url: `https://www.youtube.com/embed/${_getYoutubedEmbed(
