@@ -17,6 +17,11 @@ class _NotesList extends React.Component {
     });
   };
 
+  onDeleteNote=(noteId)=>{
+    noteService.deleteNote(noteId)
+    this.loadNotes();
+  }
+
   onSaveEdit = () => {
     this.loadNotes();
   };
@@ -45,7 +50,7 @@ class _NotesList extends React.Component {
               className={`note-card ${note.type} flex`}
               style={note.style}
             >
-              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} />
+              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} onDeleteNote={this.onDeleteNote} />
             </div>
           );
         })}

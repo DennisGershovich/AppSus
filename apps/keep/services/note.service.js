@@ -7,6 +7,7 @@ export const noteService = {
   addNote,
   editNote,
   markTodoDone,
+  deleteNote
 };
 
 const NOTES_KEY = "notedDB";
@@ -63,6 +64,12 @@ function query() {
   }
   gNotes = notes;
   return Promise.resolve(notes);
+}
+
+function deleteNote(noteId){
+  let noteIdx=gNotes.findIndex(note=>note.id===noteId);
+  gNotes.splice(noteIdx,1);
+  _saveToStorage();
 }
 
 function markTodoDone(noteId, todoItemIdx) {
