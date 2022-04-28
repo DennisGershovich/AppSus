@@ -61,11 +61,7 @@ function query(filterBy) {
      emails = emails.filter(email => {
         return email.subject.toLowerCase().includes(filterBy.content) 
     })
-    // if(filterBy.readState && filterBy.readState !== 'all' || null){
-    //     emails = emails.filter(email =>{
-    //         return email.isRead != filterBy.readState
-    //     })
-    // }
+
     }
     let unReadEmails = getUnreadEmailsCount(emails)
     return Promise.resolve(emails,unReadEmails)
