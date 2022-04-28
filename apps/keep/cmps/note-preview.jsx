@@ -16,17 +16,13 @@ export class NotePreview extends React.Component {
     this.props.onSaveEdit()
   }
 
-  componentDidUpdate(prevProps, prevState) {
-    console.log('the preview updated');
-  }
-
   render() {
     const { note } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <React.Fragment>
         <DynamicCmp type={note.type} note={note} onSaveEdit={this.props.onSaveEdit}/>
-        <input name="note-color" value={`${note.style?note.style.backgroundColor:''}`} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
+        <input name="note-color" value={`${note.style?note.style.backgroundColor:'#ffffff'}`} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
       </React.Fragment>
     );
   }

@@ -26,8 +26,6 @@ class _NotesList extends React.Component {
   };
 
   componentDidUpdate(prevProps, prevState) {
-    console.log("prev props", prevProps);
-    console.log("this props", this.props);
     if (
       (prevProps.location.pathname !== this.props.location.pathname) &
       (prevProps.location.pathname === "/notes/edit")

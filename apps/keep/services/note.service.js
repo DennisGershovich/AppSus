@@ -29,7 +29,7 @@ const preMade = [
       title: "Bobi and Me",
     },
     style: {
-      backgroundColor: "#00d",
+      backgroundColor: "#ffffff",
     },
   },
   {
@@ -66,14 +66,14 @@ function query() {
 }
 
 function markTodoDone(noteId,todoItemIdx){
-  debugger
+  // debugger
   const noteIdx=gNotes.findIndex(note=>note.id===noteId)
   gNotes[noteIdx].info.todos[todoItemIdx].doneAt=Date.now();
   return gNotes[noteIdx]
 }
 
 function editNote(noteId,values){
-  debugger
+  // debugger
   let noteIdx=gNotes.findIndex(note=>note.id===noteId);
   if(gNotes[noteIdx].type==='note-txt'){
     gNotes[noteIdx].info.txt=values.txt;
