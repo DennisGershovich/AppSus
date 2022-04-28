@@ -86,6 +86,11 @@ function editNote(noteId,values){
     _saveToStorage();
     return gNotes[noteIdx]
   }
+  if(gNotes[noteIdx].type==='note-todos'&values.todo!==null){
+    gNotes[noteIdx].info.todos.push({txt:values.todo,doneAt:null})
+    _saveToStorage();
+    return gNotes[noteIdx];
+  }
 }
 
 function addNote( primaryValue, noteType ) {
