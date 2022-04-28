@@ -19,7 +19,7 @@ export class NotePreview extends React.Component {
 
   render() {
     const { note } = this.state;
-    const {onDeleteNote,onTogglePinNote}=this.props
+    const {onDeleteNote,onTogglePinNote,onDuplicateNote}=this.props
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <React.Fragment>
@@ -28,6 +28,7 @@ export class NotePreview extends React.Component {
         <input name="note-color" value={note.style.backgroundColor} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
         <img src="assets\img\keep\bin.png" onClick={()=>onDeleteNote(note.id)} alt="" />
         <img src="assets\img\keep\pin.png" onClick={()=>onTogglePinNote(note.id)} alt="" />
+        <img src="assets\img\keep\duplication.png" onClick={()=>onDuplicateNote(note.id)} alt="" />
         </div>   
       </React.Fragment>
     );

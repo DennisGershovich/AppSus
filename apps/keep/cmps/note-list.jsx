@@ -41,6 +41,11 @@ class _NotesList extends React.Component {
     this.loadNotes();
   };
 
+  onDuplicateNote=(noteId)=>{
+    noteService.duplicateNote(noteId);
+    this.loadNotes();
+  }
+
   componentDidUpdate(prevProps, prevState) {
     if (
       (prevProps.location.pathname !== this.props.location.pathname) &
@@ -70,6 +75,7 @@ class _NotesList extends React.Component {
                     onSetBgc={() => this.onSetBgc()}
                     onDeleteNote={this.onDeleteNote}
                     onTogglePinNote={this.onTogglePinNote}
+                    onDuplicateNote={this.onDuplicateNote}
                   />
                 </div>
               );
@@ -88,6 +94,7 @@ class _NotesList extends React.Component {
                     onSaveEdit={() => this.onSaveEdit()}
                     onDeleteNote={this.onDeleteNote}
                     onTogglePinNote={this.onTogglePinNote}
+                    onDuplicateNote={this.onDuplicateNote}
                   />
                 </div>
               );

@@ -9,6 +9,7 @@ export const noteService = {
   markTodoDone,
   deleteNote,
   pinNoteToggle,
+  duplicateNote,
 };
 
 const NOTES_KEY = "notedDB";
@@ -83,6 +84,20 @@ function query(filterBy) {
     notes = filterdNotes;
   }
   return Promise.resolve(notes);
+}
+
+function duplicateNote(noteId){
+  debugger
+  const note=gNotes.filter(note=>note.id===noteId)
+  const newNote={
+    id:utilService.makeId(),
+    type:note[0].type,
+    isPinned:note[0].isPinned,
+    info:note[0].info,
+    style:note[0].style
+  }
+  gNotes.push(newNote)
+  _saveToStorage();
 }
 
 function pinNoteToggle(noteId) {
