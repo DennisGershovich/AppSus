@@ -55,7 +55,13 @@ function query(filterBy) {
        _saveToStorage(EMAILS_KEY,emails)
     }
     if (filterBy) {
-        console.log('filter by!')
+        console.log(filterBy)
+        let { content,read } = filterBy
+        if(read === '') read = 'all'
+        emails = emails.filter(email => {
+        return email.subject.toLowerCase().includes(content) 
+    })
+
     }
     let unReadEmails = getUnreadEmailsCount(emails)
     return Promise.resolve(emails,unReadEmails)

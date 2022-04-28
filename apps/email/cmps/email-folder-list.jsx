@@ -5,11 +5,11 @@ export function EmailFolderList(){
     return <div className="email-nav-container">
     <ul>
         <li className="email-nav-item"><NavLink to="/email/compose">Compose</NavLink></li>
-        <li className="email-nav-item"><NavLink to="">Inbox</NavLink></li>
-        <li className="email-nav-item"><NavLink to="">Started</NavLink></li>
-        <li className="email-nav-item"><NavLink to="">Sent</NavLink></li>
-        <li className="email-nav-item"><NavLink to="">Drafts</NavLink></li>
-        <li className="email-nav-item"><NavLink to="">Trash</NavLink></li>
+        <li className="email-nav-item"><NavLink >Inbox</NavLink></li>
+        <li className="email-nav-item"><NavLink >Started</NavLink></li>
+        <li className="email-nav-item"><NavLink >Sent</NavLink></li>
+        <li className="email-nav-item"><NavLink >Drafts</NavLink></li>
+        <li className="email-nav-item"><NavLink >Trash</NavLink></li>
     </ul>
 </div>
 }

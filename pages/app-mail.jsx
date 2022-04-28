@@ -24,6 +24,12 @@ export class EmailApp extends React.Component{
             })
     }
 
+    onSetFilter = (filterBy) =>{
+        this.setState({filterBy:filterBy}, () =>{
+            this.loadEmails()
+        })
+    }
+
     updateCountUnreadEmails = (emailId) =>{
         emailService.upDateEmailRead(emailId)
         this.setState({unreadEmails:emailService.getUnreadEmailsCount(this.state.emails)})  
@@ -33,7 +39,7 @@ export class EmailApp extends React.Component{
     const {emails,unreadEmails} = this.state
 
     return<section className="email-app">
-        <EmailFilter unreadEmails={unreadEmails} /> 
+        <EmailFilter unreadEmails={unreadEmails} onSetFilter={this.onSetFilter}  /> 
         <div className="email-app-main-content">
         <EmailFolderList />
         <EmailList onRead={this.updateCountUnreadEmails} emails={emails}/> 
