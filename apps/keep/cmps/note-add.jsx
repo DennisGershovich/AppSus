@@ -38,7 +38,7 @@ const { withRouter } = ReactRouterDOM;
   }
 
   render() {
-    let { primaryValue,placeholder, } = this.state;
+    let { primaryValue,placeholder } = this.state;
     return (
       <div className="add-note-container">
           <input type="text" name="primaryValue" value={primaryValue} placeholder={placeholder} onClick={this.onAddFocus} onChange={this.handleChange} />

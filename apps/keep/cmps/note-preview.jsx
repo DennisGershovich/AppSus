@@ -11,6 +11,7 @@ export class NotePreview extends React.Component {
   };
 
   onChangeBgcColor=({value})=>{
+    debugger
     const {note}=this.state
     noteService.changeBgcColor(note.id,value)
     .then(res=>this.setState({note:res}))
@@ -23,7 +24,7 @@ export class NotePreview extends React.Component {
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <React.Fragment>
-        <DynamicCmp type={note.type} note={note} onSaveEdit={this.props.onSaveEdit}/>
+        <DynamicCmp type={note.type} note={note}/>
         <div className="note-general-controls">
         <input name="note-color" type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
         <img src="assets\img\keep\bin.png" onClick={()=>onDeleteNote(note.id)} alt="" />
