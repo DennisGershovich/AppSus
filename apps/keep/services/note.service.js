@@ -5,7 +5,8 @@ export const noteService = {
   query,
   changeBgcColor,
   addNote,
-  editNote
+  editNote,
+  markTodoDone,
 };
 
 const NOTES_KEY = "notedDB";
@@ -64,19 +65,26 @@ function query() {
   return Promise.resolve(notes);
 }
 
+function markTodoDone(noteId,todoItemIdx){
+  debugger
+  const noteIdx=gNotes.findIndex(note=>note.id===noteId)
+  gNotes[noteIdx].info.todos[todoItemIdx].doneAt=Date.now();
+  return gNotes[noteIdx]
+}
+
 function editNote(noteId,values){
   debugger
   let noteIdx=gNotes.findIndex(note=>note.id===noteId);
   if(gNotes[noteIdx].type==='note-txt'){
     gNotes[noteIdx].info.txt=values.txt;
     _saveToStorage();
-    return
+    return gNotes[noteIdx]
   }
   if(gNotes[noteIdx].type==='note-img'){
     gNotes[noteIdx].info.title=values.title?values.title:gNotes[noteIdx].info.title;
     gNotes[noteIdx].info.url=values.url?values.url:gNotes[noteIdx].info.url;
     _saveToStorage();
-    return
+    return gNotes[noteIdx]
   }
 }
 
