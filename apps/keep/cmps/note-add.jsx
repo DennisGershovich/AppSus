@@ -14,6 +14,11 @@ const { withRouter } = ReactRouterDOM;
     this.setState({ [target.name]: target.value },()=>{});
   };
 
+
+  onAddFocus=()=>{
+    this.props.history.push('/notes/add')
+  }
+
   onSubmit=()=>{
     const {primaryValue,noteType}=this.state
     if(!primaryValue) return;
@@ -36,7 +41,7 @@ const { withRouter } = ReactRouterDOM;
     let { primaryValue,placeholder, } = this.state;
     return (
       <div className="add-note-container">
-          <input type="text" name="primaryValue" value={primaryValue} placeholder={placeholder} onChange={this.handleChange} />
+          <input type="text" name="primaryValue" value={primaryValue} placeholder={placeholder} onClick={this.onAddFocus} onChange={this.handleChange} />
           {/* {(noteType==='todo'||noteType==='img')&&<input type="text" name="seconderyValue" value={seconderyValue} onChange={this.handleChange}></input>} */}
           <img src="assets\img\keep\add-note.png" onClick={this.onSubmit} alt="" />
           {/* <button className="add-note" onClick={this.onSubmit}>+</button> */}
