@@ -1,0 +1,41 @@
+.compose-section{
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.compose-container{
+    border: #ccc 1px solid;
+    width: 50%;
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    background-color: #f4f4f4;
+    box-shadow: 0 0 4px #00000059;
+}
+
+.compose-container>*:not(:last-child){
+    border-bottom: #ccc 1px solid;
+}
+
+.new-message{
+    flex: 2;
+}
+
+.message-to{
+    flex:1
+}
+
+.message-subject{
+    flex:1
+}
+
+.message-content{
+    flex:9
+}
+
+.compose-btns{
+    display: flex;
+    justify-content: space-between;
+}

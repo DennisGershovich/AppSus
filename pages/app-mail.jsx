@@ -2,6 +2,7 @@ import { EmailList } from "../apps/email/cmps/email-list.jsx"
 import {EmailFilter} from "../apps/email/cmps/email-filter.jsx"
 import {EmailFolderList} from "../apps/email/cmps/email-folder-list.jsx"
 import {emailService} from "../apps/email/services/emailService.js"
+
 export class EmailApp extends React.Component{
 
     state ={

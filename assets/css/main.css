@@ -1,23 +1,28 @@
 /* Setup */
-
 @import './setup/variables.css';
 @import './setup/fonts.css';
 @import './setup/keyframes.css';
-
 /* Basics */
-
 @import './basics/base.css';
 @import './basics/helpers.css';
-
 /* Views */
-
 @import'./pages/app-home.css';
 @import'./pages/mail.css';
 @import'./pages/note-app.css';
 
-/* Cmps */
+/*Cmps main app*/
 @import './cmps/app-header.css';
 @import './cmps/app-footer.css';
+
+/* Cmps email*/
+
+@import'./cmps/email/email-preview.css';
+@import'./cmps/email/email-details.css';
+@import'./cmps/email/email-folder.css';
+@import'./cmps/email/email-compose.css';
+
+/*Cmps notes */
+
 @import './cmps/notes/add-note.css';
 @import './cmps/notes/vid-note.css';
 @import './cmps/notes/img-note.css';
@@ -25,6 +30,4 @@
 @import './cmps/notes/todo-note.css';
 @import './cmps/notes/note-preview.css';
 @import './cmps/notes/notes-list.css';
-@import'./cmps/email/email-preview.css';
-@import'./cmps/email/email-details.css';
-@import'./cmps/email/email-folder.css';
+

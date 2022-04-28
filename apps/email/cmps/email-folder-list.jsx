@@ -1,10 +1,10 @@
-const { NavLink } = ReactRouterDOM
+const {Route,NavLink,Switch } = ReactRouterDOM
 
 export function EmailFolderList(){
 
     return <div className="email-nav-container">
     <ul>
-        <li className="email-nav-item"><NavLink to="">Compose</NavLink></li>
+        <li className="email-nav-item"><NavLink to="/email/compose">Compose</NavLink></li>
         <li className="email-nav-item"><NavLink to="">Inbox</NavLink></li>
         <li className="email-nav-item"><NavLink to="">Started</NavLink></li>
         <li className="email-nav-item"><NavLink to="">Sent</NavLink></li>
@@ -13,3 +13,5 @@ export function EmailFolderList(){
     </ul>
 </div>
 }
+
+
