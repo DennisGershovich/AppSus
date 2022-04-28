@@ -87,6 +87,7 @@ function saveEmail(to,subject,content){
 
 function removeEmail(emailId) {
     let emails = _loadFromStorage(EMAILS_KEY)
+    if(!emails) return
     emails = emails.filter(email => email.id !== emailId)
     _saveToStorage(EMAILS_KEY,emails)
 }
