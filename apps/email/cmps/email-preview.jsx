@@ -16,7 +16,6 @@ export function EmailPreview ({email,onRead}){
             <div className="email-date">
                 {email.sentAt}
             </div>
-            <i className=" fas fa-trash-alt"></i>
         </li>
    </Link>
 }

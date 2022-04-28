@@ -12,7 +12,7 @@ export function EmailDetails (props){
             <div>
                 {email.subject}
             </div>
-            <div onClick={() => console.log('test')}>
+            <div onClick={ () =>Remove(email.id,props) }>
                 <i className=" fas fa-trash-alt"></i>  
             </div>
         </div>
@@ -27,4 +27,9 @@ export function EmailDetails (props){
            </div>
         </div>
     </section>  
+}
+
+function Remove(emailId,props){
+    emailService.removeEmail(emailId)
+    props.history.goBack()
 }

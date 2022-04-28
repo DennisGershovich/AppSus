@@ -1,11 +1,14 @@
 
 const EMAILS_KEY = "emailDB";
+const SENT_EMAILS_KEY = 'sent_emailDB'
 
 export const emailService ={
     query,
     getEmail,
     getUnreadEmailsCount,
-    upDateEmailRead
+    upDateEmailRead,
+    saveEmail,
+    removeEmail
 }
 
 const loggedinUser = {
@@ -43,9 +46,11 @@ sender:'osama'
 }
 ]
 
+const sentEmails =[]
+
 function query(filterBy) {
     let emails = _loadFromStorage(EMAILS_KEY)
-    if (!emails) {
+    if (!emails || emails.length === 0) {
         emails = emails_list
        _saveToStorage(EMAILS_KEY,emails)
     }
@@ -72,6 +77,30 @@ function upDateEmailRead(emailId){
     let emailIdx = emails.findIndex(email => email.id === emailId )
     emails[emailIdx].isRead = true
     _saveToStorage(EMAILS_KEY,emails)
+    
+}
+
+function saveEmail(to,subject,content){
+    let sentEmail = _createEmail(to,subject,content)
+     _saveToStorage(SENT_EMAILS_KEY,sentEmail)
+}
+
+function removeEmail(emailId) {
+    let emails = _loadFromStorage(EMAILS_KEY)
+    emails = emails.filter(email => email.id !== emailId)
+    _saveToStorage(EMAILS_KEY,emails)
+}
+
+
+function _createEmail(to,subject,content){
+    return {
+    id: _makeId(),
+    subject:subject,
+    body:content,
+    sentAt : new Date().toLocaleDateString('he'),
+    to:to,
+    sender:loggedinUser.fullname
+    }
     
 }
 
