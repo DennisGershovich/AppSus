@@ -19,7 +19,7 @@ export class NotesFilter extends React.Component {
   render() {
     let { search, type } = this.state.filterBy;
     return (
-      <section className="filter-container flex">
+      <section className="filter-container">
         <input
           type="text"
           name="search"

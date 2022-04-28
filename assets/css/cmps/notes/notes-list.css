@@ -1,5 +1,9 @@
+.notes-display-container{
+
+}
+
 .notes-list-container{
-    padding: 100px;
+    padding: 20px 20px;
     align-self: stretch;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
     grid-gap:1.5rem;
