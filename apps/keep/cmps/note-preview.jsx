@@ -25,7 +25,7 @@ export class NotePreview extends React.Component {
       <React.Fragment>
         <DynamicCmp type={note.type} note={note} onSaveEdit={this.props.onSaveEdit}/>
         <div className="note-general-controls">
-        <input name="note-color" value={note.style.backgroundColor} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
+        <input name="note-color" type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
         <img src="assets\img\keep\bin.png" onClick={()=>onDeleteNote(note.id)} alt="" />
         <img src="assets\img\keep\pin.png" onClick={()=>onTogglePinNote(note.id)} alt="" />
         <img src="assets\img\keep\duplication.png" onClick={()=>onDuplicateNote(note.id)} alt="" />
