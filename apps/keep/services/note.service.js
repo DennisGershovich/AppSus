@@ -65,35 +65,48 @@ function query() {
   return Promise.resolve(notes);
 }
 
-function markTodoDone(noteId,todoItemIdx){
+function markTodoDone(noteId, todoItemIdx) {
   // debugger
-  const noteIdx=gNotes.findIndex(note=>note.id===noteId)
-  gNotes[noteIdx].info.todos[todoItemIdx].doneAt=Date.now();
-  return gNotes[noteIdx]
+  const noteIdx = gNotes.findIndex((note) => note.id === noteId);
+  gNotes[noteIdx].info.todos[todoItemIdx].doneAt = Date.now();
+  return gNotes[noteIdx];
 }
 
-function editNote(noteId,values){
+function editNote(noteId, values) {
   // debugger
-  let noteIdx=gNotes.findIndex(note=>note.id===noteId);
-  if(gNotes[noteIdx].type==='note-txt'){
-    gNotes[noteIdx].info.txt=values.txt;
+  let noteIdx = gNotes.findIndex((note) => note.id === noteId);
+  if (gNotes[noteIdx].type === "note-txt") {
+    gNotes[noteIdx].info.txt = values.txt;
     _saveToStorage();
-    return gNotes[noteIdx]
+    return gNotes[noteIdx];
   }
-  if(gNotes[noteIdx].type==='note-img'){
-    gNotes[noteIdx].info.title=values.title?values.title:gNotes[noteIdx].info.title;
-    gNotes[noteIdx].info.url=values.url?values.url:gNotes[noteIdx].info.url;
+  if (gNotes[noteIdx].type === "note-img") {
+    gNotes[noteIdx].info.title = values.title
+      ? values.title
+      : gNotes[noteIdx].info.title;
+    gNotes[noteIdx].info.url = values.url
+      ? values.url
+      : gNotes[noteIdx].info.url;
     _saveToStorage();
-    return gNotes[noteIdx]
+    return gNotes[noteIdx];
   }
-  if(gNotes[noteIdx].type==='note-todos'&values.todo!==null){
-    gNotes[noteIdx].info.todos.push({txt:values.todo,doneAt:null})
+  if ((gNotes[noteIdx].type === "note-todos") & (values.todo !== null)) {
+    gNotes[noteIdx].info.todos.push({ txt: values.todo, doneAt: null });
+    _saveToStorage();
+    return gNotes[noteIdx];
+  }
+  if ((gNotes[noteIdx].type === "note-vid") & (values.inputUrl !== null)) {
+    gNotes[
+      noteIdx
+    ].info.url = `https://www.youtube.com/embed/${_getYoutubedEmbed(
+      values.inputUrl
+    )}`;
     _saveToStorage();
     return gNotes[noteIdx];
   }
 }
 
-function addNote( primaryValue, noteType ) {
+function addNote(primaryValue, noteType) {
   return _createNote(primaryValue, noteType).then((res) => {
     gNotes.push(res);
     _saveToStorage();
@@ -144,7 +157,9 @@ function _createNote(primaryValue, noteType) {
         id: utilService.makeId(),
         type: "note-vid",
         info: {
-          url: `https://www.youtube.com/embed/${_getYoutubedEmbed(primaryValue)}`,
+          url: `https://www.youtube.com/embed/${_getYoutubedEmbed(
+            primaryValue
+          )}`,
         },
       });
   }
