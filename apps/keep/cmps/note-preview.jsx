@@ -18,13 +18,15 @@ export class NotePreview extends React.Component {
 
   render() {
     const { note } = this.state;
+    const {onDeleteNote,onTogglePinNote}=this.props
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <React.Fragment>
         <DynamicCmp type={note.type} note={note} onSaveEdit={this.props.onSaveEdit}/>
         <div className="note-general-controls">
         <input name="note-color" value={`${note.style?note.style.backgroundColor:'#ffffff'}`} type="color" onChange={(ev)=>this.onChangeBgcColor(ev.target)}/>
-        <img src="assets\img\keep\bin.png" onClick={()=>this.props.onDeleteNote(note.id)} alt="" />
+        <img src="assets\img\keep\bin.png" onClick={()=>onDeleteNote(note.id)} alt="" />
+        <img src="assets\img\keep\pin.png" onClick={()=>onTogglePinNote(note.id)} alt="" />
         </div>   
       </React.Fragment>
     );

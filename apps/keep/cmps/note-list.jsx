@@ -4,6 +4,7 @@ import { NotePreview } from "./note-preview.jsx";
 const { withRouter } = ReactRouterDOM;
 class _NotesList extends React.Component {
   state = {
+    pinnedNotes:null,
     notes: null,
   };
 
@@ -13,7 +14,9 @@ class _NotesList extends React.Component {
 
   loadNotes = () => {
     noteService.query().then((res) => {
-      this.setState({ notes: res });
+      const pinnedNotes=res.filter(note=>note.isPinned)
+      const regNotes=res.filter(note=>!note.isPinned)
+      this.setState({ pinnedNotes,notes: regNotes });
     });
   };
 
@@ -26,9 +29,10 @@ class _NotesList extends React.Component {
     this.loadNotes();
   };
 
-  onChangeColor = () => {
+  onTogglePinNote=(noteId)=>{
+    noteService.pinNoteToggle(noteId);
     this.loadNotes();
-  };
+  }
 
   componentDidUpdate(prevProps, prevState) {
     if (
@@ -39,18 +43,30 @@ class _NotesList extends React.Component {
   }
 
   render() {
-    const { notes } = this.state;
-    if (notes === null) return <React.Fragment></React.Fragment>;
+    const { notes,pinnedNotes } = this.state;
+    if (notes === null & pinnedNotes===null) return <React.Fragment></React.Fragment>;
     return (
       <section className="notes-list-container grid">
-        {notes.map((note) => {
+        {pinnedNotes&&pinnedNotes.map((note) => {
+          return (
+            <div
+              key={note.id}
+              className={`note-card ${note.type} flex pinned`}
+              style={note.style}
+            >
+              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} onDeleteNote={this.onDeleteNote}  onTogglePinNote={this.onTogglePinNote}/>
+            </div>
+          );
+        })}
+      
+        {notes&&notes.map((note) => {
           return (
             <div
               key={note.id}
               className={`note-card ${note.type} flex`}
               style={note.style}
             >
-              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} onDeleteNote={this.onDeleteNote} />
+              <NotePreview note={note} onSaveEdit={() => this.onSaveEdit()} onDeleteNote={this.onDeleteNote}  onTogglePinNote={this.onTogglePinNote}/>
             </div>
           );
         })}

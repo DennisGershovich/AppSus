@@ -2,10 +2,10 @@
     padding: 100px;
     align-self: stretch;
     grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    grid-gap:5px
+    grid-gap:1.5rem;
 }
 
-.notes-list-container >*{
+.notes-list-container .note-card{
     flex-direction: column;
     justify-content: space-between;
     padding-inline: 0.5em; ;
@@ -13,3 +13,8 @@
     box-shadow: 0 0 4px #00000059;
     min-height: 200px;
 }
+
+.notes-list-container .note-card.pinned{
+    box-shadow: 0 0 20px 6px #fffb00bd;
+}
+
