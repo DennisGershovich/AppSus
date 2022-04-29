@@ -10,6 +10,7 @@ export const noteService = {
   deleteNote,
   pinNoteToggle,
   duplicateNote,
+  addEmailToNotes,
 };
 
 const NOTES_KEY = "notedDB";
@@ -86,8 +87,28 @@ function query(filterBy) {
   return Promise.resolve(notes);
 }
 
-function duplicateNote(noteId){
+function addEmailToNotes(subject, body, to){
   debugger
+  gNotes=_loadFromStorage();
+  const newNote={
+    id:utilService.makeId(),
+    type:'note-email',
+    isPinned:false,
+    info:{
+      txt:subject,
+      body,
+      to,
+    },
+    style:{
+      backgroundColor:"#ffffff"
+    }
+  }
+  gNotes.push(newNote);
+  _saveToStorage();
+  return Promise.resolve(newNote);
+}
+
+function duplicateNote(noteId){
   const note=gNotes.filter(note=>note.id===noteId)
   const newNote={
     id:utilService.makeId(),
@@ -148,6 +169,12 @@ function editNote(noteId, values) {
     ].info.url = `https://www.youtube.com/embed/${_getYoutubedEmbed(
       values.inputUrl
     )}`;
+    _saveToStorage();
+    return gNotes[noteIdx];
+  }
+  if ((gNotes[noteIdx].type === "note-email") & ((values.subject !== null)||(values.body!==null))) {
+    gNotes[noteIdx].info.txt = values.subject?values.subject:gNotes[noteIdx].info.txt;
+    gNotes[noteIdx].info.body = values.body?values.body:gNotes[noteIdx].info.body;
     _saveToStorage();
     return gNotes[noteIdx];
   }
