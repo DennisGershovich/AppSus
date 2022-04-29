@@ -1,10 +1,11 @@
+import {BookApp} from '../apps/books/cmps/book-app.jsx'
+import { BookDetails } from '../apps/books/cmps/book-details.jsx'
 
-export function Books() {
+const Router = ReactRouterDOM.HashRouter
+const { Route, Switch } = ReactRouterDOM
 
-    return <section className="books">
-        <h3>books</h3>
-
-    </section>
+export function BooksApp() {
+    return <Router>
+    <BookApp />
+    </Router>
 }
-
-
