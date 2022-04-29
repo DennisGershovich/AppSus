@@ -1,4 +1,5 @@
 import {emailService} from "../services/emailService.js"
+const { Link } = ReactRouterDOM
 
 export function EmailDetails (props){
 
@@ -15,6 +16,7 @@ export function EmailDetails (props){
             <div onClick={ () =>Remove(email.id,props) }>
                 <i className=" fas fa-trash-alt"></i>  
             </div>
+            <Link to={`/notes?emailId=${email.id}`}  > link to note </Link> 
         </div>
            <div className="email-sender">
                {email.sender}

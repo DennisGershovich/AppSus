@@ -8,6 +8,7 @@ export class EmailFilter extends React.Component{
     onHandleChange = ({target}) =>{
        const value = (target.type === 'number')? +target.value : target.value
        const field = target.name
+    //    console.log("value :",value,'field',value)
         this.setState((prevState) =>( {filterBy:{[field]:value}}),() =>{
             this.props.onSetFilter(this.state.filterBy)
         } )
@@ -25,11 +26,11 @@ export class EmailFilter extends React.Component{
         <button className="email-nav-btn">|||</button>   
         <form onSubmit={this.onFilter}>
             <input className="email-input-filter" placeholder="Search mail" type='text' name='content' onChange={this.onHandleChange} /> 
-            {/* <select name='readState' onChange={this.onHandleChange}>
+            <select name='readState' onChange={this.onHandleChange}>
                 <option value="all">All</option>
                 <option value='true'>Read</option>
                 <option value="false">Unread</option>
-            </select> */}
+            </select>
         </form>
         <button onClick={ () => this.props.onSort('date')}>Sort by date</button>
         <button onClick={ () => this.props.onSort('title')}>Sort by title</button>

@@ -58,10 +58,26 @@ function query(filterBy) {
        _saveToStorage(EMAILS_KEY,emails)
     }
     if (filterBy) {   
-     emails = emails.filter(email => {
-        return email.subject.toLowerCase().includes(filterBy.content) 
-    })
-
+        if(filterBy.content){
+         emails = emails.filter(email => {
+         return email.subject.toLowerCase().includes(filterBy.content) 
+            })
+        }
+        if(filterBy.readState){
+         if(filterBy.readState === 'all'){ 
+            let unReadEmails = getUnreadEmailsCount(emails)
+            return Promise.resolve(emails,unReadEmails)}
+        }
+        if(filterBy.readState === 'true'){
+            emails = emails.filter(email => {
+            return email.isRead === true
+            })
+        }
+        if(filterBy.readState === 'false'){
+            emails = emails.filter(email => {
+            return email.isRead === false
+            })
+        }
     }
     let unReadEmails = getUnreadEmailsCount(emails)
     return Promise.resolve(emails,unReadEmails)
