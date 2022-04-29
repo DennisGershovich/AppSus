@@ -1,7 +1,7 @@
 import { bookService } from "../book-service/bookService.js"
 
 import { BookList } from "./book-list.jsx"
-// import { BookFilter } from "../cmps/book-filter.jsx"
+import { BookFilter } from "../cmps/book-filter.jsx"
 // import { BookDetails } from "../cmps/book-details.jsx"
 
 export class BookApp extends React.Component {
@@ -32,9 +32,8 @@ export class BookApp extends React.Component {
         return (
          
             <section className="books">
+                <BookFilter onSetFilter={this.onSetFilter} /> 
                 <BookList books={books} />
-               {/* <BookFilter onSetFilter={this.onSetFilter} />
-               <BookList books={books} /> */}
             </section>
         )
     }

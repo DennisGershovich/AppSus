@@ -6,6 +6,7 @@ const { Route, Switch } = ReactRouterDOM
 
 export function BooksApp() {
     return <Router>
+    <h1 className='books-header'> Welcome to booksApp</h1>
     <BookApp />
     </Router>
 }

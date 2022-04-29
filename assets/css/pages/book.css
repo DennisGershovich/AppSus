@@ -2,6 +2,12 @@
 width: 100%;
 height: 100%;
 }
+.books-header{
+    text-align: center;
+    margin: 1rem;
+    border-bottom: 1px solid black;
+    width: auto;
+}
 
 .book-list{
     display: flex;
@@ -11,8 +17,6 @@ height: 100%;
     justify-content: center;
 }
 
-.book-img {
-    /* height: 100px;
-    width: 100px;
-    object-fit: cover;  */
+.books-filter {
+   padding-inline-start: 4.8rem;
 }
