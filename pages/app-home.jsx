@@ -17,6 +17,10 @@ export function Home() {
                  <span> Notes</span>
                 <i className="far fa-sticky-note note" ></i>
             </Link>
+            <Link to="/books" className="landing-btn">
+              <span>Books</span>
+              <i className="icon-box fas fa-book note" > </i>
+            </Link>
           </div>
         </div>    
       </div>

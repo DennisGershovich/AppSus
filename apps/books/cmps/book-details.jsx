@@ -45,16 +45,18 @@ export class BookDetails extends React.Component {
 
     const nextBookId = bookService.getNextBook(book.id)
     return <section className="book-details">
-        <img src={book.thumbnail} />
+        <div className='details-container'>
+        <img className='img-details' src={book.thumbnail} />
         <h1>{book.title}</h1>
         <p>{book.description}</p>
         <button onClick={this.onGoBack}>Back</button>
         <button onClick={this.onRemove}>Remove</button>
         <Link to={`/book/${nextBookId}`}><button onClick={this.onNextPage}>Next</button></Link> 
-        <Link to= {`/book/${book.id}/review`} >Add Review</Link>
+        <Link to= {`/book/${book.id}/review`} className="add-review-btn" >Add Review</Link>
         <section>
         <Route path={`/book/${book.id}/review`} component={ () => <AddReview  bookId={book.id} />} />
         </section>
+        </div>
     </section>
     }
 }
