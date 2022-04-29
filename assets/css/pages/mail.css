@@ -39,6 +39,15 @@
     display: none;
 }
 
+.take-to-email-details-btn{
+    color: black;
+    margin-right: 10px;
+}
+.note-pin{
+color: black;
+margin-right: 6px;
+}
+
 @media (min-width:600px) and (max-width:850px) {
     .email-app-main-content {
         padding: 0 5% 0;
