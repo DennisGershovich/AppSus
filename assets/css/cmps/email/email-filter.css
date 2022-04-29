@@ -1,0 +1,132 @@
+.email-filter {
+    display: flex;
+    justify-content: space-evenly;
+    padding: 1.7rem;
+    /* background-color: aquamarine; */
+    background-color: var(--primary-clr);
+}
+
+.email-input-filter {
+    height: 99%;
+    font-size: 1.1rem;
+    border: 1px solid #ccc;
+    border: 0;
+    margin-right: 5px;
+    border-radius: 5px;
+}
+
+.email-select-filter{ 
+    height:99%;
+    border: 0;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.sort-btns-container :last-child{
+    margin-left:1em
+}
+
+.sort-btn{
+    height: 100%;
+    padding: 0.5rem;
+    border-radius: 5px;
+}
+
+.sort-btn:hover{
+    background-color: #cbcbcb; 
+}
+
+.unread-emails-counter {
+    text-align: center;
+    display: inline-block;
+    font-size: 1.1rem;
+}
+
+@media only screen and (max-width: 700px) {
+.email-filter {
+      flex-wrap: wrap;
+      justify-content: space-between;
+      padding: 1.7rem;
+    }
+    .email-nav-btn {
+        transform: rotate(90deg);
+        padding: 0.7rem;
+     }
+
+    .filter-form{
+        height: 50%;
+    } 
+
+    .email-input-filter {
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border: 0;
+        margin-right: 5px;
+        border-radius: 5px;
+      
+    }
+    .email-select-filter {
+        height: 99%;
+        border: 0;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .sort-btns-container{
+        height: 50%;
+    }
+    .unread-emails-counter {
+        text-align: center;
+        display: inline-block;
+        font-size: 1.1rem;
+        width: 100%;
+        margin-top: 10px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .email-filter {
+     flex-wrap: wrap;
+     justify-content: space-between;
+     padding: 1.7rem;
+    }
+    .filter-form {
+        height: 40%; 
+        width: 100%;
+        text-align: center;
+    }
+    .email-nav-btn-container {
+        display: none;
+    }
+    .email-input-filter {
+        font-size: 1rem;
+        border: 1px solid #ccc;
+        border: 0;
+        margin-right: 5px;
+        border-radius: 5px;
+        height: 40%;
+    }
+    
+    .email-select-filter {
+        height: 50%;
+        border: 0;
+        cursor: pointer;
+        border-radius: 5px;
+    }
+    .sort-btns-container {
+        height: 40%; 
+        width: 100%;
+        text-align:center
+    }
+    .sort-btn {
+        height: 50%;
+        padding: 0.4rem;
+        border-radius: 5px;
+    }
+    .unread-emails-counter {
+        text-align: center;
+        display: inline-block;
+        width: 100%;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+}

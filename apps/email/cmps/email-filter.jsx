@@ -22,19 +22,20 @@ export class EmailFilter extends React.Component{
 
    
     render(){
-        return <div className="email-filter">
-        <button className="email-nav-btn">|||</button>   
-        <form onSubmit={this.onFilter}>
+        return <div className="email-filter"> 
+        <form className="filter-form" onSubmit={this.onFilter}>
             <input className="email-input-filter" placeholder="Search mail" type='text' name='content' onChange={this.onHandleChange} /> 
-            <select name='readState' onChange={this.onHandleChange}>
+            <select className="email-select-filter" name='readState' onChange={this.onHandleChange}>
                 <option value="all">All</option>
                 <option value='true'>Read</option>
                 <option value="false">Unread</option>
             </select>
         </form>
-        <button onClick={ () => this.props.onSort('date')}>Sort by date</button>
-        <button onClick={ () => this.props.onSort('title')}>Sort by title</button>
-        <span className="unread-emails-counter">Unread emails:{this.props.unreadEmails}</span>
+        <div className="sort-btns-container">
+        <button className="sort-btn" onClick={ () => this.props.onSort('date')}>Sort by date</button>
+        <button className="sort-btn" onClick={ () => this.props.onSort('title')}>Sort by title</button>
+        </div>
+        <span className="unread-emails-counter">Unread emails: {this.props.unreadEmails} </span>
         </div>
     }
 }

@@ -1,3 +1,7 @@
 .email-nav-item a{
-    color: var(--dark-clr)
+    color: var(--dark-clr);
+}
+.email-nav-item a:hover {
+    background-color: #dad8d8;
+    border-radius: 5px;
 }
