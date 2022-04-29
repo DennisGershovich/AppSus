@@ -9,7 +9,7 @@ export class BookDetails extends React.Component {
     }
 
     componentDidMount(){
-        // this.loadBook()
+         this.loadBook()
     }
 
     componentDidUpdate(prevProps, prevState){
