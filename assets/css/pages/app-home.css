@@ -20,10 +20,17 @@
 
 .lead {
     text-align: center;
+    font-weight: 600
+}
+
+.x-large{
+    font-size: 4.5rem;
 }
 
 .buttons {
     display: flex;
+    /* border: 1px solid black; */
+    margin-top: 10px;
 }
 
 .email,
@@ -49,3 +56,14 @@
     text-align: center
 }
 
+@media (min-width:600px) and (max-width:850px) {
+.x-large {
+    font-size: 3.5rem;
+}
+}
+
+@media only screen and (max-width: 600px) {
+    .x-large {
+        font-size: 3rem;
+    }
+}
