@@ -34,11 +34,6 @@ export class NotesFilter extends React.Component {
           <option value="note-todos">Todo</option>
           <option value="note-vid">Videos</option>
         </select>
-        {/* <img
-          src="assets\img\keep\go.png"
-          alt=""
-          onClick={() => onSetFilter(this.state.filterBy)}
-        /> */}
       </section>
     );
   }

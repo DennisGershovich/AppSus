@@ -1,24 +1,39 @@
-.notes-display-container{
 
+@media (max-width:700px){
+    .notes-display-container{
+        flex-direction: column;
+    }
+    .notes-list-container {
+        padding: 8px;
+      }
 }
 
-.notes-list-container{
-    padding: 20px 20px;
-    align-self: stretch;
-    grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
-    grid-gap:1.5rem;
+@media(min-width:700px){
+    .notes-list-container {
+        padding: 20px 20px;
+      }
 }
 
-.notes-list-container .note-card{
-    flex-direction: column;
-    justify-content: space-between;
-    padding-inline: 0.5em; ;
-    border-radius: 0.5em;
-    box-shadow: 0 0 4px #00000059;
-    min-height: 200px;
+.notes-display-container .filter-icon-container img{
+    width: inherit;
+    height: inherit;
 }
 
-.notes-list-container .note-card.pinned{
-    box-shadow: 0 0 20px 6px #fffb00bd;
+.notes-list-container {
+  align-self: stretch;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1.5rem;
 }
 
+.notes-list-container .note-card {
+  flex-direction: column;
+  justify-content: space-between;
+  padding-inline: 0.5em;
+  border-radius: 0.5em;
+  box-shadow: 0 0 4px #00000059;
+  min-height: 200px;
+}
+
+.notes-list-container .note-card.pinned {
+  box-shadow: 0 0 20px 6px rgb(129, 191, 253);
+}

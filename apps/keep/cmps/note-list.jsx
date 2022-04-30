@@ -8,6 +8,7 @@ class _NotesList extends React.Component {
     pinnedNotes: null,
     notes: null,
     filterBy: null,
+    filterIsOpen: false,
   };
 
   componentDidMount() {
@@ -32,6 +33,10 @@ class _NotesList extends React.Component {
     this.setState({ filterBy: { search, type } }, () => this.loadNotes());
   };
 
+  onFilterToggle = () => {
+    this.setState({ filterIsOpen: !this.state.filterIsOpen });
+  };
+
   onSetBgc = () => {
     this.loadNotes();
   };
@@ -41,24 +46,30 @@ class _NotesList extends React.Component {
     this.loadNotes();
   };
 
-  onDuplicateNote=(noteId)=>{
+  onDuplicateNote = (noteId) => {
     noteService.duplicateNote(noteId);
     this.loadNotes();
-  }
+  };
 
   componentDidUpdate(prevProps, prevState) {
-    if (
-      (prevProps.location.pathname !== this.props.location.pathname) )
+    if (prevProps.location.pathname !== this.props.location.pathname)
       this.loadNotes();
   }
 
   render() {
-    const { notes, pinnedNotes } = this.state;
+    const { notes, pinnedNotes, filterIsOpen } = this.state;
     if ((notes === null) & (pinnedNotes === null))
       return <React.Fragment></React.Fragment>;
     return (
       <section className="notes-display-container flex">
-        <NotesFilter onSetFilter={this.onSetFilter} />
+        <div className="filter-icon-container">
+          <img
+            src="assets\img\keep\filter.png"
+            alt=""
+            onClick={this.onFilterToggle}
+          />
+        </div>
+        {filterIsOpen && <NotesFilter onSetFilter={this.onSetFilter} />}
         <section className="notes-list-container grid">
           {pinnedNotes &&
             pinnedNotes.map((note) => {
