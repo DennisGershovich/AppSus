@@ -1,16 +1,15 @@
-
-.filter-container{
-    flex-basis: 20%;
-    align-items: flex-start;
+.filter-container {
+  flex-basis: 20%;
+  align-items: flex-start;
 }
 
-.filter-container>*:not(:last-child){
-    border: 0;
-    box-shadow: 0 0 4px 2px #d3d3d394;
-    align-content: center;
+.filter-container > *:not(:last-child) {
+  border: 0;
+  box-shadow: 0 0 4px 2px #d3d3d394;
+  align-content: center;
 }
 
 .filter-container img {
-    cursor: pointer;
-    width: inherit;
+  cursor: pointer;
+  width: inherit;
 }

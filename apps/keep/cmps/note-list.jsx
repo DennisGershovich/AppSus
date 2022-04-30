@@ -101,7 +101,6 @@ class _NotesList extends React.Component {
                   <NotePreview
                     note={note}
                     onSetBgc={this.onSetBgc}
-                    // onSaveEdit={() => this.onSaveEdit()}
                     onDeleteNote={this.onDeleteNote}
                     onTogglePinNote={this.onTogglePinNote}
                     onDuplicateNote={this.onDuplicateNote}

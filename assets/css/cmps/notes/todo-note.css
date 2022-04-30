@@ -1,7 +1,7 @@
-.todo-list li{
-    cursor: pointer;
+.todo-list li {
+  cursor: pointer;
 }
 
-.todo-list li.done{
-    text-decoration: line-through;
+.todo-list li.done {
+  text-decoration: line-through;
 }

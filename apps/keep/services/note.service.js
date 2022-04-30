@@ -24,9 +24,9 @@ const preMade = [
     info: {
       txt: "Fullstack Me Baby!",
     },
-    style:{
-      backgroundColor:"#ffffff"
-    }
+    style: {
+      backgroundColor: "#ffffff",
+    },
   },
   {
     id: "n102",
@@ -50,21 +50,21 @@ const preMade = [
         { txt: "Coding power", doneAt: 187111111 },
       ],
     },
-    style:{
-      backgroundColor:"#ffffff"
-    }
+    style: {
+      backgroundColor: "#ffffff",
+    },
   },
   {
     id: "n104",
     type: "note-vid",
     isPinned: true,
     info: {
-      txt:'Youtube',
+      txt: "Youtube",
       url: "https://www.youtube.com/embed/tgbNymZ7vqY",
     },
-    style:{
-      backgroundColor:"#ffffff"
-    }
+    style: {
+      backgroundColor: "#ffffff",
+    },
   },
 ];
 
@@ -80,44 +80,46 @@ function query(filterBy) {
   gNotes = notes;
   if (filterBy) {
     const filterdNotes = notes.filter((note) => {
-      return (note.type === filterBy.type || filterBy.type === "")&((note.info.txt).toLowerCase().includes(filterBy.search.toLowerCase()));
+      return (
+        (note.type === filterBy.type || filterBy.type === "") &
+        note.info.txt.toLowerCase().includes(filterBy.search.toLowerCase())
+      );
     });
     notes = filterdNotes;
   }
   return Promise.resolve(notes);
 }
 
-function addEmailToNotes(subject, body, to){
-  debugger
-  gNotes=_loadFromStorage();
-  const newNote={
-    id:utilService.makeId(),
-    type:'note-email',
-    isPinned:false,
-    info:{
-      txt:subject,
+function addEmailToNotes(subject, body, to) {
+  gNotes = _loadFromStorage();
+  const newNote = {
+    id: utilService.makeId(),
+    type: "note-email",
+    isPinned: false,
+    info: {
+      txt: subject,
       body,
       to,
     },
-    style:{
-      backgroundColor:"#ffffff"
-    }
-  }
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  };
   gNotes.push(newNote);
   _saveToStorage();
   return Promise.resolve(newNote);
 }
 
-function duplicateNote(noteId){
-  const note=gNotes.filter(note=>note.id===noteId)
-  const newNote={
-    id:utilService.makeId(),
-    type:note[0].type,
-    isPinned:note[0].isPinned,
-    info:note[0].info,
-    style:note[0].style
-  }
-  gNotes.push(newNote)
+function duplicateNote(noteId) {
+  const note = gNotes.filter((note) => note.id === noteId);
+  const newNote = {
+    id: utilService.makeId(),
+    type: note[0].type,
+    isPinned: note[0].isPinned,
+    info: note[0].info,
+    style: note[0].style,
+  };
+  gNotes.push(newNote);
   _saveToStorage();
 }
 
@@ -134,14 +136,12 @@ function deleteNote(noteId) {
 }
 
 function markTodoDone(noteId, todoItemIdx) {
-  // debugger
   const noteIdx = gNotes.findIndex((note) => note.id === noteId);
   gNotes[noteIdx].info.todos[todoItemIdx].doneAt = Date.now();
   return gNotes[noteIdx];
 }
 
 function editNote(noteId, values) {
-  // debugger
   let noteIdx = gNotes.findIndex((note) => note.id === noteId);
   if (gNotes[noteIdx].type === "note-txt") {
     gNotes[noteIdx].info.txt = values.txt;
@@ -172,9 +172,16 @@ function editNote(noteId, values) {
     _saveToStorage();
     return gNotes[noteIdx];
   }
-  if ((gNotes[noteIdx].type === "note-email") & ((values.subject !== null)||(values.body!==null))) {
-    gNotes[noteIdx].info.txt = values.subject?values.subject:gNotes[noteIdx].info.txt;
-    gNotes[noteIdx].info.body = values.body?values.body:gNotes[noteIdx].info.body;
+  if (
+    (gNotes[noteIdx].type === "note-email") &
+    (values.subject !== null || values.body !== null)
+  ) {
+    gNotes[noteIdx].info.txt = values.subject
+      ? values.subject
+      : gNotes[noteIdx].info.txt;
+    gNotes[noteIdx].info.body = values.body
+      ? values.body
+      : gNotes[noteIdx].info.body;
     _saveToStorage();
     return gNotes[noteIdx];
   }
@@ -207,9 +214,9 @@ function _createNote(primaryValue, noteType) {
         info: {
           txt: primaryValue,
         },
-        style:{
-          backgroundColor:"##ffffff"
-        }
+        style: {
+          backgroundColor: "##ffffff",
+        },
       });
     case "img":
       return Promise.resolve({
@@ -218,11 +225,11 @@ function _createNote(primaryValue, noteType) {
         isPinned: false,
         info: {
           url: primaryValue,
-          txt: 'Image',
+          txt: "Image",
         },
-        style:{
-          backgroundColor:"##ffffff"
-        }
+        style: {
+          backgroundColor: "##ffffff",
+        },
       });
     case "todo":
       return Promise.resolve({
@@ -233,9 +240,9 @@ function _createNote(primaryValue, noteType) {
           txt: primaryValue,
           todos: [],
         },
-        style:{
-          backgroundColor:"##ffffff"
-        }
+        style: {
+          backgroundColor: "##ffffff",
+        },
       });
     case "vid":
       return Promise.resolve({
@@ -243,14 +250,14 @@ function _createNote(primaryValue, noteType) {
         isPinned: false,
         type: "note-vid",
         info: {
-          txt: 'Youtube',
+          txt: "Youtube",
           url: `https://www.youtube.com/embed/${_getYoutubedEmbed(
             primaryValue
           )}`,
         },
-        style:{
-          backgroundColor:"##ffffff"
-        }
+        style: {
+          backgroundColor: "##ffffff",
+        },
       });
   }
 }

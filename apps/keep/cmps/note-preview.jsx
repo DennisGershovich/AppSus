@@ -11,7 +11,6 @@ export class NotePreview extends React.Component {
   };
 
   onChangeBgcColor = ({ value }) => {
-    debugger;
     const { note } = this.state;
     noteService
       .changeBgcColor(note.id, value)

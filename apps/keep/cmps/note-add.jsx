@@ -6,7 +6,6 @@ export class _AddNote extends React.Component {
   state = {
     primaryValue: "",
     placeholder: "Enter text",
-    // seconderyValue:"",
     noteType: "txt",
   };
 
@@ -66,13 +65,12 @@ export class _AddNote extends React.Component {
           onClick={this.onAddFocus}
           onChange={this.handleChange}
         />
-        {/* {(noteType==='todo'||noteType==='img')&&<input type="text" name="seconderyValue" value={seconderyValue} onChange={this.handleChange}></input>} */}
+
         <img
           src="assets\img\keep\add-note.png"
           onClick={this.onSubmit}
           alt=""
         />
-        {/* <button className="add-note" onClick={this.onSubmit}>+</button> */}
 
         <div className="add-note-controls">
           <img
@@ -99,10 +97,6 @@ export class _AddNote extends React.Component {
             onClick={(ev) => this.onSetType(ev, "vid")}
             alt=""
           />
-          {/* <button className="btn-add-text-note" onClick={(ev)=>this.onSetType(ev,'txt')}>txt </button>
-          <button className="btn-add-img-note" onClick={(ev)=>this.onSetType(ev,'img')}>img </button>
-          <button className="btn-add-todo-note" onClick={(ev)=>this.onSetType(ev,'todo')}>todo </button>
-          <button className="btn-add-vid-note" onClick={(ev)=>this.onSetType(ev,'vid')}>vid </button> */}
         </div>
       </div>
     );

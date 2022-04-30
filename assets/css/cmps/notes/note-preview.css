@@ -1,18 +1,18 @@
-.note-card{
-    color: rgb(224, 223, 223);
-    align-items: center;
-    height: fit-content;
+.note-card {
+  color: rgb(224, 223, 223);
+  align-items: center;
+  height: fit-content;
 }
 
-.note-card .edit-button-container{
-    margin-top: 20px;
+.note-card .edit-button-container {
+  margin-top: 20px;
 }
-.note-card .edit-button-container img{
-    cursor: pointer;
-    width: inherit;
+.note-card .edit-button-container img {
+  cursor: pointer;
+  width: inherit;
 }
 
-.note-card .note-general-controls img{
-    cursor: pointer;
-    width: inherit;
+.note-card .note-general-controls img {
+  cursor: pointer;
+  width: inherit;
 }

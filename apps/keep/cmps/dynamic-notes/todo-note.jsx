@@ -24,10 +24,9 @@ export class TodoNote extends React.Component {
 
   onSaveChanges = (ev) => {
     ev.preventDefault();
-    const { note, todo,} = this.state;
-    const newNote=noteService.editNote(note.id, { todo });
-    this.setState({note:newNote,editToggle:false})
-
+    const { note, todo } = this.state;
+    const newNote = noteService.editNote(note.id, { todo });
+    this.setState({ note: newNote, editToggle: false });
   };
 
   render() {

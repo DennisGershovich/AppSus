@@ -19,8 +19,8 @@ export class TextNote extends React.Component {
   onSaveChanges = (ev) => {
     ev.preventDefault();
     const { note } = this.props;
-    const newNote=noteService.editNote(note.id, { txt: this.state.text });
-    this.setState({note:newNote,editToggle:false})
+    const newNote = noteService.editNote(note.id, { txt: this.state.text });
+    this.setState({ note: newNote, editToggle: false });
   };
 
   render() {

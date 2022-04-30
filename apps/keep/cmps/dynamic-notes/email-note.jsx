@@ -43,7 +43,6 @@ export class EmailNote extends React.Component {
               onChange={this.handleChange}
             />
             <textarea
-            //   type="textarea"
               name="body"
               value={body}
               placeholder="Enter new email body!"

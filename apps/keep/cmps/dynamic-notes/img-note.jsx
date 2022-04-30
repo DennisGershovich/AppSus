@@ -21,9 +21,8 @@ export class ImgNote extends React.Component {
   onSaveChanges = (ev) => {
     ev.preventDefault();
     const { note, title, url } = this.state;
-    const newNote=noteService.editNote(note.id, { title, url });
-    this.setState({note:newNote,editToggle:false})
-
+    const newNote = noteService.editNote(note.id, { title, url });
+    this.setState({ note: newNote, editToggle: false });
   };
 
   render() {
