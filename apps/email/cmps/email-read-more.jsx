@@ -1,8 +1,8 @@
 const { Link } = ReactRouterDOM
 // import {emailService} from "../services/emailService.js"
 
-export function ReadMore({email}){
-    
+export function ReadMore({email,OnRemoveEmail}){
+
     return<div className='read-more-container'>
         <h3>{email.subject}</h3>
         <h3>from:{email.sender}</h3>
@@ -11,6 +11,7 @@ export function ReadMore({email}){
         <div className="read-more-links-container">
         <Link  className="take-to-email-details-btn" to={`/email/${email.id}`}> <i className="fas fa-expand icon" ></i> </Link>
         <Link to={`/notes?emailId=${email.id}`}  ><i className="note-pin fas fa-thumbtack icon"  title="Save as note"></i> </Link> 
+        <button onClick={() => OnRemoveEmail(email.id)}>remove </button>
         </div>
     </div>
 }

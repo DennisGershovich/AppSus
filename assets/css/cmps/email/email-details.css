@@ -34,11 +34,13 @@
     display: flex;
     justify-content: space-between;
     padding: 0 1rem 0;
+   
 }
 
 .read-more-container{
-    background-color: antiquewhite;
+    /* background-color: antiquewhite; */
     position: relative;
+    box-shadow: 0 0 4px #00000059;
 }
 
 .read-more-links-container{

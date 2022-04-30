@@ -9,6 +9,7 @@
     display: flex;
     justify-content: space-around;
     height: 100%;
+    width: 100%;
     padding: 0 15% 0;
     gap: 20px;
 }
@@ -19,13 +20,20 @@
     margin: 0.4rem;
     height: 70%;
     text-align: center;
+    width: 20%;
 }
 .email-nav-item:nth-of-type(1){
-    background-color: azure;
+    /* background-color: azure; */
     font-size: 1.3em;
+    border-bottom: 1px solid var(--primary-clr);
 }
 .email-nav-item {
     margin-bottom: 0.5rem;   
+}
+
+.email-nav-item a:hover {
+    background-color: #cbcbcb;
+    border-radius: 5px;
 }
 
 .email-list-container {
@@ -33,6 +41,11 @@
     box-shadow: 0 0 4px #00000059;
     margin: 0.4rem;
     height: 97%;
+    width: 100%;
+}
+
+.list-title{
+    padding: 0.3rem;
 }
 
 .email-nav-btn-container {
@@ -46,6 +59,12 @@
 .note-pin{
 color: black;
 margin-right: 6px;
+}
+@media (min-width:850px) and (max-width:1250px) {
+    .email-app-main-content {
+        padding: 0 5% 0;
+        gap: 20px;
+    }
 }
 
 @media (min-width:600px) and (max-width:850px) {
@@ -62,23 +81,35 @@ margin-right: 6px;
     flex-wrap: wrap;
     height: 100%;
     padding: 0 2% 0;
-    gap:5px
+    gap:0px
 }
 .email-nav-container {
     width: 100%;
     height: 5%;  
     margin: 5px;
+    padding-top:0.1rem;
 }
+
+.email-nav{
+    /* background-color: aqua; */
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+}
+
 .email-nav-list{
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 .email-nav-list>*:not(:last-child) {
     margin-inline-end: 20px;
 }
 .email-nav-item:nth-of-type(1) {
-    background-color: none;
-    font-size: 1.1em;
+    background-color: transparent;
+    font-size: 1em;
+    color: var(--primary-clr);
+  
 }
 .email-list-container {
     height: 95%;

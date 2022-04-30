@@ -1,7 +1,15 @@
-.email-nav-item a{
+.email-nav-item a {
     color: var(--dark-clr);
+   height: 100%;
+
 }
-.email-nav-item a:hover {
+.email-nav-item :active {
     background-color: #dad8d8;
     border-radius: 5px;
+
+    
 }
+
+/* email-nav-item-a {
+    color: var(--primary-clr)
+} */

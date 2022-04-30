@@ -11,7 +11,11 @@ export const emailService ={
     removeEmail,
     convertToDate,
     sortEmails,
-    getSentEmails
+    getSentEmails,
+    trimEmailBodyMessage,
+    removeSentEmailFromStorage,
+    starEmail
+
 }
 
 const loggedinUser = {
@@ -23,11 +27,12 @@ let emails_list =[
 {
 id: _makeId(),
 subject: 'asdsfsd',
-body: 'Would love to love up sometimes',
+body: 'Would love to love up sometimes ',
 isRead: false,
 sentAt :  1551733960574,
 to: 'momo@momo.com',
-sender:'Suzi'
+sender:'Suzi',
+isStarred:false
 },
 {
 id: _makeId(),
@@ -36,20 +41,24 @@ body: 'Would love to catch up sometimes',
 isRead: false,
 sentAt :  1551133960594,
 to: 'momo@momo.com',
-sender:'Pozi'
+sender:'Pozi',
+isStarred:false
 },
 {
 id: _makeId(),
 subject: 'aa',
-body: 'Would love to catch up sometimes',
+body: 'Would love to catch up',
 isRead: true,
 sentAt : 1551443960594,
 to: 'momo@momo.com',
-sender:'ozama'
+sender:'ozama',
+isStarred:true
 }
 ]
 
 const sentEmails =[]
+const starredEmails = []
+
 
 function query(filterBy) {
     let emails = _loadFromStorage(EMAILS_KEY)
@@ -137,6 +146,35 @@ function removeEmail(emailId) {
 
 function getSentEmails(){
     return  _loadFromStorage(SENT_EMAILS_KEY)
+}
+
+function removeSentEmailFromStorage(emailId){
+    let sentEmails = _loadFromStorage(SENT_EMAILS_KEY) 
+    let emailIdx = sentEmails.findIndex(email => email.id === emailId)
+    sentEmails.splice(emailIdx,1)
+    _saveToStorage(SENT_EMAILS_KEY,sentEmails)
+}
+
+function trimEmailBodyMessage (messageStr) {
+    if(messageStr.length > 20){
+        return messageStr.slice(0,20) + '..'
+    }else{
+        return messageStr
+    } 
+
+}
+
+function starEmail(email){
+    let emails = _loadFromStorage(EMAILS_KEY)
+    
+    //get the wmail
+     let emailIdx = emails.findIndex(mail => mail.id === email.id )
+    //chamge the star to true or false 
+    emails[emailIdx].isStarred = !emails[emailIdx].isStarred 
+    //save 
+    _saveToStorage(EMAILS_KEY,emails)
+    //rerender class
+
 }
 
 function _createEmail(to,subject,content){
