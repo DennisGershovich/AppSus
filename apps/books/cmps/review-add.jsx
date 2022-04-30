@@ -15,7 +15,7 @@ export class AddReview extends React.Component{
     }
 
     render(){
-        console.log( this.props)
+     console.log( this.props)
        return <section className="book-review">
             <form className="review-form" >
                 <label htmlFor="full_name">Full name</label>
@@ -35,7 +35,7 @@ export class AddReview extends React.Component{
                 </textarea>
                 <button className="submit-btn" onClick={ (ev) => {
                     ev.preventDefault()
-                    this.props.history.goBack()}}>Save review</button>
+                    props.history.goBack()}}>Save review</button>
             </form>
         </section>
     }

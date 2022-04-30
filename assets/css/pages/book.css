@@ -24,6 +24,11 @@ height: 100%;
 .book-preview{
     box-shadow: 0 0 4px #00000059;
     border-radius: 3px;
+    text-align: center;
+}
+
+.book-preview:hover {
+    transform: scale(1.05);
 }
 
  .book-details{
@@ -49,6 +54,29 @@ height: 100%;
     height: 100%;
     object-fit: cover;
  } 
+
+ .book-details-container{
+    border-top: 1px solid var(--dark-clr);
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    justify-content: space-around;
+    margin-top: 10px;
+    padding-top: 10px;
+ }
+
+ .add-review-btn{
+   width: 100%;
+   padding-top: 20px;
+ }
+
+ .book-title-preview{
+    color: var(--dark-clr);
+ }
+
+ .book-price-preview{
+    color: var(--dark-clr);
+ }
 
  .add-review-btn{
      color: black;

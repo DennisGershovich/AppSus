@@ -29,7 +29,7 @@ export class BookDetails extends React.Component {
     }
 
     onGoBack = () =>{
-        this.props.history.push("/book")
+        this.props.history.goBack()
     }
 
     onRemove = () => {
@@ -49,12 +49,14 @@ export class BookDetails extends React.Component {
         <img className='img-details' src={book.thumbnail} />
         <h1>{book.title}</h1>
         <p>{book.description}</p>
+        <div className='book-details-container'>
         <button onClick={this.onGoBack}>Back</button>
         <button onClick={this.onRemove}>Remove</button>
         <Link to={`/book/${nextBookId}`}><button onClick={this.onNextPage}>Next</button></Link> 
-        <Link to= {`/book/${book.id}/review`} className="add-review-btn" >Add Review</Link>
+        {/* <Link to= {`/book/${book.id}/review`} className="add-review-btn" >Add Review</Link> */}
+         </div>
         <section>
-        <Route path={`/book/${book.id}/review`} component={ () => <AddReview  bookId={book.id} />} />
+        {/* <Route className="add-review-btn" path={`/book/${book.id}/review`} component={ () => <AddReview bookId={book.id} />} /> */}
         </section>
         </div>
     </section>
