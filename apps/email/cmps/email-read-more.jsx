@@ -11,7 +11,7 @@ export function ReadMore({email,OnRemoveEmail}){
         <div className="read-more-links-container">
         <Link  className="take-to-email-details-btn" to={`/email/${email.id}`}> <i className="fas fa-expand icon" ></i> </Link>
         <Link to={`/notes?emailId=${email.id}`}  ><i className="note-pin fas fa-thumbtack icon"  title="Save as note"></i> </Link> 
-        <button onClick={() => OnRemoveEmail(email.id)}>remove </button>
+        <button className="remove-btn" onClick={() => OnRemoveEmail(email.id)}> <i className=" remove-btn fas fa-trash-alt"></i>   </button>
         </div>
     </div>
 }

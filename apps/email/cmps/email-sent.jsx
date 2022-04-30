@@ -19,7 +19,7 @@ export class SentEmails extends React.Component{
     render(){
      if(!this.state.sentEmails)return <div>no sent emails</div>
      return <div>
-       {this.state.sentEmails.map(email => {return <li  className='email-preview read flex space-between' key={email.key}>
+       {this.state.sentEmails.map(email => {return <li key={email.key}  className='email-preview read flex space-between' >
            <p> To:{email.to}</p>
            <p>{email.subject}</p>
            {/* <p>{email.body}</p> */}
@@ -31,20 +31,4 @@ export class SentEmails extends React.Component{
     }
 }
 
-
-
-// export function SentEmails (onRead){
-//     let sentEmails = emailService.getSentEmails()
-//     if(!sentEmails)return <div>no sent emails</div>
-//     return <div>
-//        {sentEmails.map(email => {return <li key={email.key} className='email-preview read flex space-between'>
-//            <p> To:{email.to}</p>
-//            <p>{email.subject}</p>
-//            {/* <p>{email.body}</p> */}
-//            <p> {email.sentAt}</p>
-//            <button onClick={() => forceUpdate() }> delete</button>
-//        </li>})}
-       
-//     </div>
-// }
 

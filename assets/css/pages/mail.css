@@ -60,6 +60,11 @@
 color: black;
 margin-right: 6px;
 }
+.remove-btn{
+    background-color: transparent;
+   font-size: 15px;
+   
+}
 @media (min-width:850px) and (max-width:1250px) {
     .email-app-main-content {
         padding: 0 5% 0;
