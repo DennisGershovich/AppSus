@@ -26,37 +26,58 @@ const loggedinUser = {
 let emails_list =[
 {
 id: _makeId(),
-subject: 'asdsfsd',
-body: 'Would love to love up sometimes ',
+subject: 'hello',
+body: 'for now. to burn tuned Where ten . was Bro tuned it and the story each time . happens it The sky ',
 isRead: false,
-sentAt :  1551733960574,
+sentAt :  1591733960574,
 to: 'momo@momo.com',
 sender:'Suzi',
 isStarred:false
 },
 {
 id: _makeId(),
-subject: 'asdzzxaaa',
+subject: 'the trip?',
 body: 'Would love to catch up sometimes',
 isRead: false,
-sentAt :  1551133960594,
+sentAt :  1601133960594,
 to: 'momo@momo.com',
 sender:'Pozi',
+isStarred:true
+},
+{
+id: _makeId(),
+subject: 'hey',
+body: 'hey there',
+isRead: false,
+sentAt : 1581443960594,
+to: 'momo@momo.com',
+sender:'Suki',
 isStarred:false
 },
 {
 id: _makeId(),
-subject: 'aa',
-body: 'Would love to catch up',
+subject: 'aaaa',
+body: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+isRead: true,
+sentAt : 1611443960594,
+to: 'momo@momo.com',
+sender:'Kuki',
+isStarred:false
+},
+{
+id: _makeId(),
+subject: 'shalom',
+body: 'Would love to catch up as soon ',
 isRead: true,
 sentAt : 1551443960594,
 to: 'momo@momo.com',
-sender:'ozama',
-isStarred:true
+sender:'Osama',
+isStarred:false
 }
 ]
 
 const sentEmails =[]
+
 const starredEmails = []
 
 
@@ -145,7 +166,8 @@ function removeEmail(emailId) {
 }
 
 function getSentEmails(){
-    return  _loadFromStorage(SENT_EMAILS_KEY)
+    
+    return _loadFromStorage(SENT_EMAILS_KEY)
 }
 
 function removeSentEmailFromStorage(emailId){
