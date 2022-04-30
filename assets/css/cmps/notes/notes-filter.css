@@ -1,3 +1,9 @@
+@media (max-width:700px){
+  .filter-container{
+    margin-bottom: 20px;
+  }
+}
+
 .filter-container {
   flex-basis: 20%;
   align-items: flex-start;
