@@ -72,7 +72,7 @@ class _NotesList extends React.Component {
           </div>
           {filterIsOpen && <NotesFilter onSetFilter={this.onSetFilter} />}
         </div>
-        <section className="notes-list-container grid">
+        <section className="notes-list-container ">
           {pinnedNotes &&
             pinnedNotes.map((note) => {
               return (

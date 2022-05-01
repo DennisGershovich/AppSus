@@ -58,3 +58,7 @@ li{
 i{
     cursor: pointer;
 }
+
+[name="note-color"]{
+    background-color: transparent;
+}

@@ -13,28 +13,30 @@
   }
 }
 
-.notes-display-container{
-  
-}
-
 .notes-display-container .filter-icon-container img {
   width: inherit;
   height: inherit;
 }
 
-.notes-list-container {
+.notes-list-container{
+  column-count: auto;
+  column-width: 200px;
+}
+
+/* .notes-list-container {
   flex-grow: 1;
   align-self: stretch;
   grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
   grid-gap: 1.5rem;
-}
+} */
 
 .notes-list-container .note-card {
   flex-direction: column;
   justify-content: space-between;
   border-radius: 0.5em;
   border: 1px solid rgba(211, 211, 211, 0.664);
-  height: fit-content;
+  margin-bottom: 10px;
+  break-inside: avoid;
 }
 
 .notes-list-container .note-card.pinned {
