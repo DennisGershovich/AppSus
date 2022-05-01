@@ -33,20 +33,23 @@
 .email-subject{
     display: flex;
     justify-content: space-between;
-    padding: 0 1rem 0;
-   
+    padding: 0 1rem 0; 
 }
 
 .read-more-container{
-    /* background-color: antiquewhite; */
     position: relative;
     box-shadow: 0 0 4px #00000059;
+    padding: 0.2em;
+}
+
+.read-more-container * {
+
 }
 
 .read-more-links-container{
     position: absolute;
-    top: 0;
+    top: 2px;
     right: 0;
-    padding: 0.2rem;
 }
+
 
