@@ -29,7 +29,7 @@ export class TextNote extends React.Component {
     let { text,content, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div className="note-content">
+      <div className="note-content flex">
         <h1 style={{textDecoration:'underline'}}>{text}</h1>
         <h3>{content}</h3>
         {editToggle && (

@@ -50,7 +50,9 @@ export class ImgNote extends React.Component {
               placeholder="Enter image url"
               onChange={this.handleChange}
             />
-            <button>save</button>
+            <button className="save-btn-container">
+              <img src="assets\img\keep\save.png" alt="" />
+            </button>
           </form>
         )}
         <Link to="/notes/edit" onClick={this.toggleEdit}>
