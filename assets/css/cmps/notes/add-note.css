@@ -1,7 +1,17 @@
+.add-note-container .add-note-controls{
+  padding-inline: 1em;
+  margin-top: 10px;
+  border-radius: 0.5em;
+  box-shadow: 0 0 7px 0px #989696d1;
+}
+
+.add-note-container input{
+  border: 0;
+}
+
 .add-note-container img {
-  width: inherit;
+  width : inherit;
   height: inherit;
-  cursor: pointer;
 }
 
 .add-note-controls img {

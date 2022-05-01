@@ -27,12 +27,11 @@
 .notes-list-container .note-card {
   flex-direction: column;
   justify-content: space-between;
-  padding-inline: 0.5em;
   border-radius: 0.5em;
-  box-shadow: 0 0 4px #00000059;
+  border: 1px solid rgba(211, 211, 211, 0.562);
   min-height: 200px;
 }
 
 .notes-list-container .note-card.pinned {
-  box-shadow: 0 0 20px 6px rgb(129, 191, 253);
+  box-shadow: 0 0 5px 3px rgba(129, 191, 253, 0.589);
 }

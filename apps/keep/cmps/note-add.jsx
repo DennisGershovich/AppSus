@@ -56,23 +56,16 @@ export class _AddNote extends React.Component {
   render() {
     let { primaryValue, placeholder } = this.state;
     return (
-      <div className="add-note-container">
-        <input
-          type="text"
-          name="primaryValue"
-          value={primaryValue}
-          placeholder={placeholder}
-          onClick={this.onAddFocus}
-          onChange={this.handleChange}
-        />
-
-        <img
-          src="assets\img\keep\add-note.png"
-          onClick={this.onSubmit}
-          alt=""
-        />
-
+      <div className="add-note-container flex">
         <div className="add-note-controls">
+          <input
+            type="text"
+            name="primaryValue"
+            value={primaryValue}
+            placeholder={placeholder}
+            onClick={this.onAddFocus}
+            onChange={this.handleChange}
+          />
           <img
             src="assets\img\keep\image.png"
             className="add-img-note"
@@ -95,6 +88,13 @@ export class _AddNote extends React.Component {
             src="assets\img\keep\movie-player.png"
             className="add-vid-note"
             onClick={(ev) => this.onSetType(ev, "vid")}
+            alt=""
+          />
+        </div>
+        <div className="add-btn-container">
+          <img
+            src="assets\img\keep\add-note.png"
+            onClick={this.onSubmit}
             alt=""
           />
         </div>

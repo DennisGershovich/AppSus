@@ -1,3 +1,4 @@
 .note-vid iframe {
+  border-radius: 0.5em 0.5em 0 0;
   max-width: 100%;
 }

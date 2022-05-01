@@ -30,10 +30,10 @@ export class ImgNote extends React.Component {
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <div>
-        <h3>{note.info.txt}</h3>
         <div className="img-container">
           <img src={`${note.info.url}`} alt="" />
         </div>
+        <h3>{note.info.txt}</h3>
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>
             <input
