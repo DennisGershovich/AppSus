@@ -23,7 +23,6 @@
     width: 20%;
 }
 .email-nav-item:nth-of-type(1){
-    /* background-color: azure; */
     font-size: 1.3em;
     border-bottom: 1px solid var(--primary-clr);
 }

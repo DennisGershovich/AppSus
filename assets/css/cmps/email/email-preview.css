@@ -58,6 +58,7 @@
 
 .email-date{
     flex: 3;
+    text-align: end;
 }
 
 .fas.fa-trash-alt{
