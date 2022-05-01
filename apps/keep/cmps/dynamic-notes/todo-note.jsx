@@ -12,9 +12,9 @@ export class TodoNote extends React.Component {
     this.setState({ editToggle: !this.state.editToggle });
   };
 
-  onMarkDone = (todoItemIdx) => {
+  onToggleDone = (todoItemIdx) => {
     const { note } = this.state;
-    const newNote = noteService.markTodoDone(note.id, todoItemIdx);
+    const newNote = noteService.toggleTodoDone(note.id, todoItemIdx);
     this.setState({ note: newNote });
   };
 
@@ -22,7 +22,8 @@ export class TodoNote extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
-  onDeleteFromTodo = (todoIdx) => {
+  onDeleteFromTodo = (ev,todoIdx) => {
+    ev.stopPropagation();
     const newNote=noteService.deleteFromTodo(this.state.note.id, todoIdx);
     this.setState({note:newNote});
   };
@@ -47,12 +48,12 @@ export class TodoNote extends React.Component {
               <li
                 key={idx}
                 className={`${todo.doneAt ? "done" : ""} flex`}
-                onClick={() => this.onMarkDone(idx)}
+                onClick={() => this.onToggleDone(idx)}
               >
                 {todo.txt}
                 <button
                   className="delete-from-todo"
-                  onClick={() => this.onDeleteFromTodo(idx)}
+                  onClick={(ev) => this.onDeleteFromTodo(ev,idx)}
                 >
                   X
                 </button>

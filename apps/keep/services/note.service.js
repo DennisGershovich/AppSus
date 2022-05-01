@@ -6,7 +6,7 @@ export const noteService = {
   changeBgcColor,
   addNote,
   editNote,
-  markTodoDone,
+  toggleTodoDone,
   deleteNote,
   pinNoteToggle,
   duplicateNote,
@@ -182,7 +182,8 @@ function addEmailToNotes(subject, body, to) {
 
 function deleteFromTodo(noteId,todoIdx){
   let tempNote=gNotes.find(note=>note.id===noteId)
-  tempNote.info.todos.splice(todoIdx,1);
+  tempNote.info.content[todoIdx].doneAt=0;
+  tempNote.info.content.splice(todoIdx,1);
   _saveToStorage();
   return tempNote;
 }
@@ -212,9 +213,10 @@ function deleteNote(noteId) {
   _saveToStorage();
 }
 
-function markTodoDone(noteId, todoItemIdx) {
+function toggleTodoDone(noteId, todoItemIdx) {
   const noteIdx = gNotes.findIndex((note) => note.id === noteId);
-  gNotes[noteIdx].info.content[todoItemIdx].doneAt = Date.now();
+  gNotes[noteIdx].info.content[todoItemIdx].doneAt = gNotes[noteIdx].info.content[todoItemIdx].doneAt?null:Date.now();
+  _saveToStorage();
   return gNotes[noteIdx];
 }
 
