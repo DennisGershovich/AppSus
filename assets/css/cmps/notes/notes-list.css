@@ -21,14 +21,9 @@
 .notes-list-container{
   column-count: auto;
   column-width: 200px;
+  flex-grow: 1;
 }
 
-/* .notes-list-container {
-  flex-grow: 1;
-  align-self: stretch;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 1.5rem;
-} */
 
 .notes-list-container .note-card {
   flex-direction: column;

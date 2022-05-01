@@ -1,3 +1,11 @@
+.todo-list{
+  text-align: left;
+}
+
+.todo-list .note-content{
+  width: 100%;
+}
+
 .todo-list li {
   cursor: pointer;
   justify-content: space-between;

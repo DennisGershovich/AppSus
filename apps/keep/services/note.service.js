@@ -136,6 +136,47 @@ const preMade = [
       backgroundColor: "#ffffff",
     },
   },
+  {
+    id: "n110",
+    type: "note-img",
+    isPinned: false,
+    info: {
+      content: "https://images.unsplash.com/photo-1512314889357-e157c22f938d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1171&q=80",
+      txt: "Remember",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
+  {
+    id: "n111",
+    type: "note-todos",
+    isPinned: false,
+    info: {
+      content: [
+        { txt: "Milk", doneAt: null },
+        { txt: "Suger", doneAt: null },
+        { txt: "Onions", doneAt: null },
+        { txt: "Eggs", doneAt: null },
+      ],
+      txt: "Market",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
+  {
+    id: "n113",
+    type: "note-img",
+    isPinned: false,
+    info: {
+      content: "https://images.unsplash.com/photo-1651006256157-9726d9968a43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      txt: "",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
 ];
 
 function query(filterBy) {
