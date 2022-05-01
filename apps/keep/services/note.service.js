@@ -106,6 +106,34 @@ const preMade = [
       backgroundColor: "#ffffff",
     },
   },
+  {
+    id: "n108",
+    type: "note-todos",
+    isPinned: false,
+    info: {
+      todos: [
+        { txt: "React", doneAt: null },
+        { txt: "Coding", doneAt: null },
+        { txt: "All day", doneAt: null },
+      ],
+      txt: "Also tommorow",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
+  {
+    id: "n109",
+    type: "note-img",
+    isPinned: false,
+    info: {
+      url: "https://images.unsplash.com/photo-1651006256157-9726d9968a43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
+      txt: "Bobi and Me",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
 ];
 
 function query(filterBy) {

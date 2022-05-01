@@ -14,7 +14,7 @@ export class TextNote extends React.Component {
   };
 
   handleChange = ({ target }) => {
-    this.setState({ text: target.value });
+    this.setState({ [target.name]: target.value });
   };
 
   onSaveChanges = (ev) => {
@@ -34,8 +34,11 @@ export class TextNote extends React.Component {
         <h3>{content}</h3>
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>
-            <input type="text" value={text} onChange={this.handleChange} />
-            <button>save</button>
+            <input type="text" placeholder="Title" name="text" value={text} onChange={this.handleChange} />
+            <textarea value={content} placeholder="Type here" name="content" onChange={this.handleChange}/>
+            <button className="save-btn-container">
+              <img src="assets\img\keep\save.png" alt="" />
+            </button>
           </form>
         )}
         <Link to="/notes/edit" onClick={this.toggleEdit}>

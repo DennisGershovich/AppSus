@@ -47,15 +47,20 @@ export class _AddNote extends React.Component {
     this.setState({ isModalOpen: true });
   };
 
+  onCloseModal = () => {
+    this.props.history.push("/notes");
+    this.setState({ isModalOpen: false, content: "", title: "" });
+  };
+
   onSubmit = () => {
-    debugger
-    const { title,content, noteType, isModalOpen } = this.state;
-    if (!title) return;
+    debugger;
+    const { title, content, noteType, isModalOpen } = this.state;
+    if (!title&!content) return;
     console.log(this.state.noteType);
     this.setState({ title: "" });
-    noteService.addNote(title,content, noteType).then(() => {
+    noteService.addNote(title, content, noteType).then(() => {
       this.props.history.push("/notes");
-      this.setState({ isModalOpen: !isModalOpen,content:'',title:'' });
+      this.setState({ isModalOpen: !isModalOpen, content: "", title: "" });
     });
   };
 
@@ -64,7 +69,8 @@ export class _AddNote extends React.Component {
     this.setState({ title: "", noteType: type });
     if (type === "img") this.setState({ placeholder: "Enter img url" });
     if (type === "txt") this.setState({ placeholder: "Enter text" });
-    if (type === "todo") this.setState({ placeholder: "Enter todo seperated with commas" });
+    if (type === "todo")
+      this.setState({ placeholder: "Enter todo seperated with commas" });
     if (type === "vid") this.setState({ placeholder: "Enter youtube url" });
   };
 
@@ -115,9 +121,10 @@ export class _AddNote extends React.Component {
             onClick={(ev) => this.onSetType(ev, "vid")}
             alt=""
           />
+          <img src="assets\img\keep\add .png" onClick={this.onSubmit} alt="" />
           <img
-            src="assets\img\keep\add-note.png"
-            onClick={this.onSubmit}
+            src="assets\img\keep\close.png"
+            onClick={this.onCloseModal}
             alt=""
           />
         </div>

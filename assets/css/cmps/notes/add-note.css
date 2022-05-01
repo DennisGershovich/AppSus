@@ -12,6 +12,7 @@
 
 .add-note-container input{
   border: 0;
+  font-size: 1.2em;
 }
 
 .add-note-container img {
@@ -29,5 +30,6 @@
 }
 
 .add-note-text textarea{
-  border: 0ch;
+  border: 0;
+  font-size: 1.2em;
 }
