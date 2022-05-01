@@ -29,7 +29,7 @@ export class EmailNote extends React.Component {
     const { note, subject, body, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div>
+      <div className="note-content">
         <h2>{note.info.txt}</h2>
         <p>{note.info.body}</p>
         <small>{note.info.to}</small>

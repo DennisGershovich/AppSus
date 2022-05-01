@@ -28,7 +28,7 @@ export class TextNote extends React.Component {
     let { text, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div>
+      <div className="note-content">
         <h1>{text}</h1>
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>

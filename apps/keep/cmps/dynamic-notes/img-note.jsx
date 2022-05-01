@@ -29,7 +29,7 @@ export class ImgNote extends React.Component {
     let { note, editToggle, title, url } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div>
+      <div className="note-content">
         <div className="img-container">
           <img src={`${note.info.url}`} alt="" />
         </div>

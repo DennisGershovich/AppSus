@@ -57,7 +57,7 @@ export class _AddNote extends React.Component {
     let { primaryValue, placeholder } = this.state;
     return (
       <div className="add-note-container flex">
-        <div className="add-note-controls">
+        <div className="add-note-controls flex">
           <input
             type="text"
             name="primaryValue"

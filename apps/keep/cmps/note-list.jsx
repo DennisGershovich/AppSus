@@ -62,14 +62,16 @@ class _NotesList extends React.Component {
       return <React.Fragment></React.Fragment>;
     return (
       <section className="notes-display-container flex">
-        <div className="filter-icon-container">
-          <img
-            src="assets\img\keep\filter.png"
-            alt=""
-            onClick={this.onFilterToggle}
-          />
+        <div className="notes-filter flex">
+          <div className="filter-icon-container">
+            <img
+              src="assets\img\keep\filter.png"
+              alt=""
+              onClick={this.onFilterToggle}
+            />
+          </div>
+          {filterIsOpen && <NotesFilter onSetFilter={this.onSetFilter} />}
         </div>
-        {filterIsOpen && <NotesFilter onSetFilter={this.onSetFilter} />}
         <section className="notes-list-container grid">
           {pinnedNotes &&
             pinnedNotes.map((note) => {

@@ -1,4 +1,7 @@
-.note-vid iframe {
+.video-player-container{
+  width: 100%;
+}
+.video-player-container iframe{
+  width: 100%;
   border-radius: 0.5em 0.5em 0 0;
-  max-width: 100%;
 }

@@ -1,7 +1,6 @@
 .note-card {
   color: rgb(121, 121, 121);
   align-items: center;
-  height: fit-content;
 }
 
 .note-card .edit-button-container {

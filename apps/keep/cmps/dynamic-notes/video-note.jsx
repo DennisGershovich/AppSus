@@ -28,8 +28,10 @@ export class VideoNote extends React.Component {
     let { note, inputUrl, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
-      <div>
-        <iframe src={`${note.info.url}`}></iframe>
+      <div className="note-content">
+        <div className="video-player-container">
+          <iframe src={`${note.info.url}`}></iframe>
+        </div>
 
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>

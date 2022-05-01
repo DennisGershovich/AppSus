@@ -1,6 +1,10 @@
+.add-note-container{
+  align-self: center;
+}
+
 .add-note-container .add-note-controls{
   padding-inline: 1em;
-  margin-top: 10px;
+  margin: 10px 0px;
   border-radius: 0.5em;
   box-shadow: 0 0 7px 0px #989696d1;
 }
@@ -12,9 +16,9 @@
 .add-note-container img {
   width : inherit;
   height: inherit;
+  cursor: pointer;
 }
 
 .add-note-controls img {
-  width: inherit;
   margin-inline-end: 5px;
 }

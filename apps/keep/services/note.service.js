@@ -66,6 +66,46 @@ const preMade = [
       backgroundColor: "#ffffff",
     },
   },
+  {
+    id: "n105",
+    type: "note-img",
+    isPinned: false,
+    info: {
+      url: "https://images.unsplash.com/photo-1433086966358-54859d0ed716?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=687&q=80",
+      txt: "Waterfall",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
+  {
+    id: "n106",
+    type: "note-todos",
+    isPinned: false,
+    info: {
+      todos: [
+        { txt: "Workout", doneAt: null },
+        { txt: "Coding", doneAt: null },
+        { txt: "Groceries", doneAt: null },
+      ],
+      txt: "Tommorow",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
+  {
+    id: "n107",
+    type: "note-img",
+    isPinned: false,
+    info: {
+      url: "https://images.unsplash.com/photo-1586348943529-beaae6c28db9?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=715&q=80",
+      txt: "Bobi and Me",
+    },
+    style: {
+      backgroundColor: "#ffffff",
+    },
+  },
 ];
 
 function query(filterBy) {
