@@ -31,37 +31,37 @@ body: 'for now. to burn tuned Where ten . was Bro tuned it and the story each ti
 isRead: false,
 sentAt :  1591733960574,
 to: 'momo@momo.com',
-sender:'Suzi',
+sender:'PayBox',
 isStarred:false
 },
 {
 id: _makeId(),
-subject: 'the trip',
+subject: 'meeting',
 body: 'Would love to catch up sometimes',
 isRead: false,
 sentAt :  1601133960594,
 to: 'momo@momo.com',
-sender:'Pozi',
+sender:'Nomi',
 isStarred:true
 },
 {
 id: _makeId(),
-subject: 'hey',
-body: 'hey there',
+subject: 'Welcome',
+body: 'Ta-da! Youve joined your first Slack workspace and we couldnt be more delighted. Here are your account details, along with some tips to help you get started.',
 isRead: false,
 sentAt : 1581443960594,
 to: 'momo@momo.com',
-sender:'Suki',
+sender:'slack',
 isStarred:false
 },
 {
 id: _makeId(),
-subject: 'aaaa',
+subject: 'trade',
 body: '"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
 isRead: true,
 sentAt : 1611443960594,
 to: 'momo@momo.com',
-sender:'Kuki',
+sender:'stocks',
 isStarred:false
 },
 {
@@ -71,7 +71,18 @@ body: 'Would love to catch up as soon ',
 isRead: true,
 sentAt : 1551443960594,
 to: 'momo@momo.com',
-sender:'Osama',
+sender:'Thomas',
+isStarred:false
+}
+,
+{
+id: _makeId(),
+subject: 'Maps',
+body: 'Welcome to Google Maps Platform Whether youre starting fresh or building enterprise services, with over 15 APIs and ',
+isRead: true,
+sentAt : 1551443960594,
+to: 'momo@momo.com',
+sender:'google',
 isStarred:false
 }
 ]
@@ -79,7 +90,6 @@ isStarred:false
 const sentEmails =[]
 
 const starredEmails = []
-
 
 function query(filterBy) {
     let emails = _loadFromStorage(EMAILS_KEY)
