@@ -2,7 +2,6 @@
     display: flex;
     justify-content: space-evenly;
     padding: 1.7rem;
-    /* background-color: aquamarine; */
     background-color: var(--primary-clr);
 }
 
@@ -28,7 +27,7 @@
 
 .sort-btn{
     height: 100%;
-    padding: 0.5rem;
+    padding: 0.3rem;
     border-radius: 5px;
 }
 

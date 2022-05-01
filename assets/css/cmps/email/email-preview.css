@@ -9,7 +9,9 @@
     text-align: center;
     height:45px;
     border-radius: 2px;
+    font-size: 0.9em;
 }
+
 .email-preview:hover {
     background-color: rgb(216, 216, 216);
     transform: scale(1.01);
@@ -19,7 +21,8 @@
 .email-preview.read{
     background-color: #f4f4f4;
 }
-/*email item*/
+
+/*email items*/
 .star{
     flex: 1;
     padding-top: 5px;
@@ -33,6 +36,7 @@
 .email-sender{
     text-align: start;
     flex: 1;
+    display: inline-block;
 }
 
 .email-content{
@@ -43,7 +47,7 @@
 }
 
 .email-subject{
-   flex:1
+   flex:1;
 }
 
 .email-content-body{
@@ -53,7 +57,7 @@
 
 .read-more-btn{
     flex:1;
-    background-color: transparent;
+    background-color: transparent;  
 }
 
 .email-date{

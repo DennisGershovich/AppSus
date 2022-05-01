@@ -36,7 +36,7 @@ isStarred:false
 },
 {
 id: _makeId(),
-subject: 'the trip?',
+subject: 'the trip',
 body: 'Would love to catch up sometimes',
 isRead: false,
 sentAt :  1601133960594,
@@ -127,8 +127,7 @@ function upDateEmailRead(emailId){
     let emails = _loadFromStorage(EMAILS_KEY)
     let emailIdx = emails.findIndex(email => email.id === emailId )
     emails[emailIdx].isRead = true
-    _saveToStorage(EMAILS_KEY,emails)
-    
+    _saveToStorage(EMAILS_KEY,emails)  
 }
 
 function sortEmails(sortBy){
@@ -154,8 +153,7 @@ function sortEmails(sortBy){
 function saveEmail(to,subject,content){
     let sentEmail = _createEmail(to,subject,content)
     sentEmails.push(sentEmail)
-   _saveToStorage(SENT_EMAILS_KEY,sentEmails)
-   
+   _saveToStorage(SENT_EMAILS_KEY,sentEmails)  
 }
 
 function removeEmail(emailId) {
@@ -166,7 +164,6 @@ function removeEmail(emailId) {
 }
 
 function getSentEmails(){
-    
     return _loadFromStorage(SENT_EMAILS_KEY)
 }
 
@@ -178,12 +175,11 @@ function removeSentEmailFromStorage(emailId){
 }
 
 function trimEmailBodyMessage (messageStr) {
-    if(messageStr.length > 20){
-        return messageStr.slice(0,20) + '..'
+    if(messageStr.length > 30){
+        return messageStr.slice(0,30) + '..'
     }else{
         return messageStr
     } 
-
 }
 
 function starEmail(email){
