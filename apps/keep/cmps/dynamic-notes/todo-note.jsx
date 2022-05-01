@@ -35,13 +35,14 @@ export class TodoNote extends React.Component {
   };
 
   render() {
+    // debugger
     const { note, todo, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <div className="note-content">
         <h2>{note.info.txt}</h2>
         <ul className="todo-list">
-          {note.info.todos.map((todo, idx) => {
+          {(note.info.content).map((todo, idx) => {
             return (
               <li
                 key={idx}

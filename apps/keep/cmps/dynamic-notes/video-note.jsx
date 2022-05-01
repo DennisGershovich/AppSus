@@ -31,7 +31,7 @@ export class VideoNote extends React.Component {
     return (
       <div className="note-content">
         <div className="video-player-container">
-          <iframe src={`${note.info.url}`}></iframe>
+          <iframe src={`${note.info.content}`}></iframe>
         </div>
         {title && <h1>{title}</h1>}
 

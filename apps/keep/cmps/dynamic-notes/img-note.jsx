@@ -31,7 +31,7 @@ export class ImgNote extends React.Component {
     return (
       <div className="note-content">
         <div className="img-container">
-          <img src={`${note.info.url}`} alt="" />
+          <img src={`${note.info.content}`} alt="" />
         </div>
         <h3>{note.info.txt}</h3>
         {editToggle && (
