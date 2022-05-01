@@ -1,5 +1,10 @@
 .todo-list li {
   cursor: pointer;
+  justify-content: space-between;
+}
+
+.todo-list li button{
+  background-color: transparent;
 }
 
 .todo-list li.done {

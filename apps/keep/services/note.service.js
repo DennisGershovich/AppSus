@@ -11,6 +11,7 @@ export const noteService = {
   pinNoteToggle,
   duplicateNote,
   addEmailToNotes,
+  deleteFromTodo,
 };
 
 const NOTES_KEY = "notedDB";
@@ -128,7 +129,7 @@ const preMade = [
     isPinned: false,
     info: {
       url: "https://images.unsplash.com/photo-1651006256157-9726d9968a43?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=735&q=80",
-      txt: "Bobi and Me",
+      txt: "",
     },
     style: {
       backgroundColor: "#ffffff",
@@ -176,6 +177,13 @@ function addEmailToNotes(subject, body, to) {
   gNotes.push(newNote);
   _saveToStorage();
   return Promise.resolve(newNote);
+}
+
+function deleteFromTodo(noteId,todoIdx){
+  let tempNote=gNotes.find(note=>note.id===noteId)
+  tempNote.info.todos.splice(todoIdx,1);
+  _saveToStorage();
+  return tempNote;
 }
 
 function duplicateNote(noteId) {

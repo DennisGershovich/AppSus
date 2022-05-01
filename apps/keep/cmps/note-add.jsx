@@ -53,7 +53,6 @@ export class _AddNote extends React.Component {
   };
 
   onSubmit = () => {
-    debugger;
     const { title, content, noteType, isModalOpen } = this.state;
     if (!title&!content) return;
     console.log(this.state.noteType);

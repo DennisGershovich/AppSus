@@ -5,6 +5,7 @@ const { Link } = ReactRouterDOM;
 export class VideoNote extends React.Component {
   state = {
     note: this.props.note,
+    title: this.props.note.info.txt,
     inputUrl: "",
     editToggle: false,
   };
@@ -25,16 +26,24 @@ export class VideoNote extends React.Component {
   };
 
   render() {
-    let { note, inputUrl, editToggle } = this.state;
+    let { note, title, inputUrl, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <div className="note-content">
         <div className="video-player-container">
           <iframe src={`${note.info.url}`}></iframe>
         </div>
+        {title && <h1>{title}</h1>}
 
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>
+            <input
+              type="text"
+              name="title"
+              value={title}
+              placeholder="Enter a title"
+              onChange={this.handleChange}
+            />
             <input
               type="text"
               name="inputUrl"
@@ -42,7 +51,9 @@ export class VideoNote extends React.Component {
               placeholder="Enter youtube link"
               onChange={this.handleChange}
             />
-            <button>save</button>
+            <button className="save-btn-container">
+              <img src="assets\img\keep\save.png" alt="" />
+            </button>
           </form>
         )}
 

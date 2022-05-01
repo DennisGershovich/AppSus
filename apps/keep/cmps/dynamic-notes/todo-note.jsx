@@ -22,6 +22,11 @@ export class TodoNote extends React.Component {
     this.setState({ [target.name]: target.value });
   };
 
+  onDeleteFromTodo = (todoIdx) => {
+    const newNote=noteService.deleteFromTodo(this.state.note.id, todoIdx);
+    this.setState({note:newNote});
+  };
+
   onSaveChanges = (ev) => {
     ev.preventDefault();
     const { note, todo } = this.state;
@@ -40,10 +45,16 @@ export class TodoNote extends React.Component {
             return (
               <li
                 key={idx}
-                className={`${todo.doneAt ? "done" : ""}`}
+                className={`${todo.doneAt ? "done" : ""} flex`}
                 onClick={() => this.onMarkDone(idx)}
               >
                 {todo.txt}
+                <button
+                  className="delete-from-todo"
+                  onClick={() => this.onDeleteFromTodo(idx)}
+                >
+                  X
+                </button>
               </li>
             );
           })}
@@ -57,7 +68,9 @@ export class TodoNote extends React.Component {
               placeholder="Enter new todo!"
               onChange={this.handleChange}
             />
-            <button>save</button>
+            <button className="save-btn-container">
+              <img src="assets\img\keep\save.png" alt="" />
+            </button>
           </form>
         )}
         <Link to="/notes/edit" onClick={this.toggleEdit}>
