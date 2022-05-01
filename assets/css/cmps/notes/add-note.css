@@ -2,7 +2,8 @@
   align-self: center;
 }
 
-.add-note-container .add-note-controls{
+.add-note-container {
+  flex-direction: column;
   padding-inline: 1em;
   margin: 10px 0px;
   border-radius: 0.5em;
@@ -21,4 +22,12 @@
 
 .add-note-controls img {
   margin-inline-end: 5px;
+}
+
+.add-note-text{
+  flex-direction: column;
+}
+
+.add-note-text textarea{
+  border: 0ch;
 }

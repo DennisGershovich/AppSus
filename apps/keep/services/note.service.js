@@ -227,8 +227,8 @@ function editNote(noteId, values) {
   }
 }
 
-function addNote(primaryValue, noteType) {
-  return _createNote(primaryValue, noteType).then((res) => {
+function addNote(title,content, noteType) {
+  return _createNote(title,content, noteType).then((res) => {
     gNotes.push(res);
     _saveToStorage();
     return res;
@@ -244,7 +244,7 @@ function changeBgcColor(noteId, value) {
   return Promise.resolve(gNotes[noteIdx]);
 }
 
-function _createNote(primaryValue, noteType) {
+function _createNote(title,content, noteType) {
   switch (noteType) {
     case "txt":
       return Promise.resolve({
@@ -252,7 +252,8 @@ function _createNote(primaryValue, noteType) {
         type: "note-txt",
         isPinned: false,
         info: {
-          txt: primaryValue,
+          txt: title,
+          content
         },
         style: {
           backgroundColor: "##ffffff",
@@ -264,21 +265,22 @@ function _createNote(primaryValue, noteType) {
         type: "note-img",
         isPinned: false,
         info: {
-          url: primaryValue,
-          txt: "Image",
+          url: content,
+          txt: title,
         },
         style: {
           backgroundColor: "##ffffff",
         },
       });
     case "todo":
+
       return Promise.resolve({
         id: utilService.makeId(),
         type: "note-todos",
         isPinned: false,
         info: {
-          txt: primaryValue,
-          todos: [],
+          txt: title,
+          todos: content.split(',').map(todo=>({txt:todo,doneAt:null})),
         },
         style: {
           backgroundColor: "##ffffff",
@@ -290,9 +292,9 @@ function _createNote(primaryValue, noteType) {
         isPinned: false,
         type: "note-vid",
         info: {
-          txt: "Youtube",
+          txt: title,
           url: `https://www.youtube.com/embed/${_getYoutubedEmbed(
-            primaryValue
+            content
           )}`,
         },
         style: {

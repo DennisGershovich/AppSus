@@ -4,9 +4,11 @@ const { withRouter } = ReactRouterDOM;
 
 export class _AddNote extends React.Component {
   state = {
-    primaryValue: "",
+    title: "",
+    content: "",
     placeholder: "Enter text",
     noteType: "txt",
+    isModalOpen: false,
   };
 
   componentDidMount() {
@@ -14,6 +16,15 @@ export class _AddNote extends React.Component {
     const emailId = urlSrcPrm.get("emailId");
     if (!emailId) return;
     this.onAddEmailToNotes(emailId);
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    console.log(
+      "prev props ",
+      prevProps.location.pathname,
+      " curr state ",
+      this.props.location.pathname
+    );
   }
 
   onAddEmailToNotes = (emailId) => {
@@ -31,41 +42,55 @@ export class _AddNote extends React.Component {
   };
 
   onAddFocus = () => {
+    // console.log(this.props.location);
     this.props.history.push("/notes/add");
+    this.setState({ isModalOpen: true });
   };
 
   onSubmit = () => {
-    const { primaryValue, noteType } = this.state;
-    if (!primaryValue) return;
+    debugger
+    const { title,content, noteType, isModalOpen } = this.state;
+    if (!title) return;
     console.log(this.state.noteType);
-    this.setState({ primaryValue: "" });
-    noteService
-      .addNote(primaryValue, noteType)
-      .then(this.props.history.push("/notes"));
+    this.setState({ title: "" });
+    noteService.addNote(title,content, noteType).then(() => {
+      this.props.history.push("/notes");
+      this.setState({ isModalOpen: !isModalOpen,content:'',title:'' });
+    });
   };
 
   onSetType = (ev, type) => {
-    if (!this.state.primaryValue) ev.preventDefault();
-    this.setState({ primaryValue: "", noteType: type });
+    if (!this.state.title) ev.preventDefault();
+    this.setState({ title: "", noteType: type });
     if (type === "img") this.setState({ placeholder: "Enter img url" });
     if (type === "txt") this.setState({ placeholder: "Enter text" });
-    if (type === "todo") this.setState({ placeholder: "Enter todo title" });
+    if (type === "todo") this.setState({ placeholder: "Enter todo seperated with commas" });
     if (type === "vid") this.setState({ placeholder: "Enter youtube url" });
   };
 
   render() {
-    let { primaryValue, placeholder } = this.state;
+    let { title, content, placeholder, isModalOpen } = this.state;
     return (
       <div className="add-note-container flex">
-        <div className="add-note-controls flex">
+        <div className="add-note-text flex">
           <input
             type="text"
-            name="primaryValue"
-            value={primaryValue}
-            placeholder={placeholder}
+            name="title"
+            value={title}
+            placeholder="Title"
             onClick={this.onAddFocus}
             onChange={this.handleChange}
           />
+          {isModalOpen && (
+            <textarea
+              value={content}
+              name="content"
+              placeholder={placeholder}
+              onChange={this.handleChange}
+            />
+          )}
+        </div>
+        <div className="add-note-controls">
           <img
             src="assets\img\keep\image.png"
             className="add-img-note"
@@ -90,8 +115,6 @@ export class _AddNote extends React.Component {
             onClick={(ev) => this.onSetType(ev, "vid")}
             alt=""
           />
-        </div>
-        <div className="add-btn-container">
           <img
             src="assets\img\keep\add-note.png"
             onClick={this.onSubmit}

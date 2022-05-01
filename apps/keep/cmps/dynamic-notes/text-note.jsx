@@ -5,6 +5,7 @@ const { Link } = ReactRouterDOM;
 export class TextNote extends React.Component {
   state = {
     text: this.props.note.info.txt,
+    content:this.props.note.info.content,
     editToggle: false,
   };
 
@@ -25,11 +26,12 @@ export class TextNote extends React.Component {
 
   render() {
     let { note } = this.props;
-    let { text, editToggle } = this.state;
+    let { text,content, editToggle } = this.state;
     if (!note) return <React.Fragment></React.Fragment>;
     return (
       <div className="note-content">
-        <h1>{text}</h1>
+        <h1 style={{textDecoration:'underline'}}>{text}</h1>
+        <h3>{content}</h3>
         {editToggle && (
           <form onSubmit={this.onSaveChanges}>
             <input type="text" value={text} onChange={this.handleChange} />
