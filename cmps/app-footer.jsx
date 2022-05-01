@@ -2,7 +2,7 @@
 export function AppFooter (){
 
         return <footer className="app-footer">
-                <small>Denis & Uri's AppSus</small>
+                <small>AppSus 2022</small>
         </footer>
 }
 
