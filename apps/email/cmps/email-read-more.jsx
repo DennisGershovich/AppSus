@@ -1,5 +1,4 @@
 const { Link } = ReactRouterDOM
-// import {emailService} from "../services/emailService.js"
 
 export function ReadMore({email,OnRemoveEmail}){
 

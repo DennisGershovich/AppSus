@@ -8,7 +8,6 @@ export class EmailFilter extends React.Component{
     onHandleChange = ({target}) =>{
        const value = (target.type === 'number')? +target.value : target.value
        const field = target.name
-    //    console.log("value :",value,'field',value)
         this.setState((prevState) =>( {filterBy:{[field]:value}}),() =>{
             this.props.onSetFilter(this.state.filterBy)
         } )
@@ -19,8 +18,6 @@ export class EmailFilter extends React.Component{
         this.props.onSetFilter(this.state.filterBy)
     }
 
-
-   
     render(){
         return <div className="email-filter"> 
         <form className="filter-form" onSubmit={this.onFilter}>

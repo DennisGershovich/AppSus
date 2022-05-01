@@ -15,7 +15,6 @@ export class EmailPreview extends React.Component{
         this.setState({emailContentForPreview:emailBody,isStarred:emailStar.isStarred})
     }
 
-
     onChangeReadMore = () =>{
         this.setState({ isReadMore: !this.state.isReadMore})
     }
@@ -27,6 +26,7 @@ export class EmailPreview extends React.Component{
     }
 
     starClassName = "star fas fa-star mr-5 ml-5 "
+
 render() {
     const {email} = this.props
   return<div>
@@ -46,7 +46,6 @@ render() {
         </li>
        { this.state.isReadMore && <ReadMore OnRemoveEmail={this.props.OnRemoveEmail}  email={email} onRead={this.props.onRead}  />}
     </div> }
-
 }
 
 

@@ -184,7 +184,6 @@ function trimEmailBodyMessage (messageStr) {
 
 function starEmail(email){
     let emails = _loadFromStorage(EMAILS_KEY)
-    
     //get the wmail
      let emailIdx = emails.findIndex(mail => mail.id === email.id )
     //chamge the star to true or false 
@@ -228,10 +227,9 @@ function _makeId(length = 6) {
 }
 
 function convertToDate(datetime){
-    const date = new Date(datetime);
+    const date = new Date(datetime)
     const options = {
         year: 'numeric', month: 'numeric', day: 'numeric',
-    };
-
-    return date.toLocaleDateString('he', options);
+    }
+    return date.toLocaleDateString('he', options)
 }

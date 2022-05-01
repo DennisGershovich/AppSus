@@ -1,5 +1,4 @@
 import {emailService} from '../services/emailService.js'
-import {EmailPreview} from './email-preview.jsx'
 
 export class SentEmails extends React.Component{
 
@@ -22,7 +21,6 @@ export class SentEmails extends React.Component{
        {this.state.sentEmails.map(email => {return <li key={email.key}  className='email-preview read flex space-between' >
            <p> To:{email.to}</p>
            <p>{email.subject}</p>
-           {/* <p>{email.body}</p> */}
            <p> {email.sentAt}</p>
            <button onClick={ () => this.onRemoveSentEmail(email.id)}> delete</button>
        </li>})}

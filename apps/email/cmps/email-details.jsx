@@ -1,5 +1,4 @@
 import {emailService} from "../services/emailService.js"
-const { Link } = ReactRouterDOM
 
 export function EmailDetails (props){
     emailService.upDateEmailRead(props.match.params.emailId)            
