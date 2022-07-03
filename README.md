@@ -5,4 +5,4 @@
 - Books App
 
 ### Link 
-[Github pages] (https://dennisgershovich.github.io/AppSus/)
+[Github pages](https://dennisgershovich.github.io/AppSus/)
